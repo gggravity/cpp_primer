@@ -3,4 +3,4 @@ project(e_7_23)
 
 set(CMAKE_CXX_STANDARD 20)
 
-add_executable(e_7_23 main.cpp)
+add_executable(e_7_23 main.cpp Screen.cpp Screen.h)

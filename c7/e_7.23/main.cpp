@@ -1,51 +1,20 @@
-#include <iostream>
+#include <bits/stdc++.h>
+#include "Screen.h"
 
 using namespace std;
 
-class Screen {
- public:
-  using position = string::size_type;
-
-  Screen () = default;
-
-  Screen (position height, position width, char character)
+int main (int argc, char *argv[])
+try
   {
-    this->height = height;
-    this->width = width;
-    this->contents = string (height * width, character);
+    Screen screen { 600, 400, 'X' };
+    auto ch = screen.get(0, 0);
+
+    cout << ch << endl;
+    cout << screen.get() << endl;
+
+    return 0;
   }
-
-  char get () const
-  { return contents[curser]; }
-
-  inline char get(position height, position width) const;
-
-  Screen &move(position row, position character);
-
- private:
-  position height{0};
-  position width{0};
-  position curser{0};
-  string contents;
-
-};
-char Screen::get (Screen::position height, Screen::position width) const
-{
-  position r = height * width;
-  return contents[r + width];
-}
-Screen &Screen::move (Screen::position row, Screen::position character)
-{
-  position r = row * width;
-  curser = r + character;
-  return *this;
-}
-
-int main ()
-{
-  Screen screen;
-  char ch = screen.get();
-  ch = screen.get(0,0);
-
-  return 0;
-}
+catch (exception &e)
+  {
+    cerr << "Error: " << e.what() << endl;
+  }
