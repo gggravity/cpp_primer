@@ -3,33 +3,49 @@
 
 using namespace std;
 
-struct Person {
-    string name;
-    string address;
-    string getName() const;
-    string getAddress() const;
-};
+struct Person
+    {
+        string m_name;
+        string m_address;
 
-string Person::getName () const
-{
-  return name;
-}
+        [[nodiscard]] string name () const;
 
-string Person::getAddress () const
-{
-  return address;
-}
+        [[nodiscard]] string address () const;
 
+        void set_name (const string &name);
+
+        void set_address (const string &address);
+    };
+
+string Person::name () const
+  {
+    return m_name;
+  }
+
+string Person::address () const
+  {
+    return m_address;
+  }
+
+void Person::set_name (const string &name)
+  {
+    Person::m_name = name;
+  }
+
+void Person::set_address (const string &address)
+  {
+    Person::m_address = address;
+  }
 
 int main ()
-{
+  {
+    Person person;
+    person.set_name("John Smith");
+    person.set_address("Earth");
 
-  Person person;
-  person.name = "John Smith";
-  person.address = "Earth";
+    cout << "Name: " << person.name() << endl;
+    cout << "Address: " << person.address() << endl;
 
-  cout << "Name: " << person.getName() << endl;
-  cout << "Address: " << person.getAddress() << endl;
+    return 0;
+  }
 
-  return 0;
-}
