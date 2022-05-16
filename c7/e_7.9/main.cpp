@@ -3,43 +3,72 @@
 
 using namespace std;
 
-struct Person {
+struct Person
+    {
+        string m_name;
+        string m_address;
+
+        [[nodiscard]] string name () const;
+
+        [[nodiscard]] string address () const;
+
+        static istream &read (istream &is, Person &person);
+
+        static ostream &print (ostream &os, const Person &person);
+
+        void set_name (const string &name);
+
+        void set_address (const string &address);
+    };
+
+string Person::name () const
+  {
+    return m_name;
+  }
+
+string Person::address () const
+  {
+    return m_address;
+  }
+
+void Person::set_name (const string &name)
+  {
+    Person::m_name = name;
+  }
+
+void Person::set_address (const string &address)
+  {
+    Person::m_address = address;
+  }
+
+istream &Person::read (istream &is, Person &person)
+  {
     string name;
     string address;
-    [[nodiscard]] string getName() const;
-    [[nodiscard]] string getAddress() const;
-    static istream &read(istream &is, Person &person);
-    static ostream &print(ostream &os, const Person &person);
-};
 
-string Person::getName () const
-{
-  return name;
-}
+    is >> name >> address;
 
-string Person::getAddress () const
-{
-  return address;
-}
-istream &Person::read (istream &is, Person &person)
-{
-  is >> person.name >> person.address;
-  return is;
-}
+    person.set_name(name);
+    person.set_address(address);
+
+    return is;
+  }
+
 ostream &Person::print (ostream &os, const Person &person)
-{
-  os << "name: " << person.name << ", address: " << person.address;
-  return os;
-}
+  {
+    os << "{ name: \"" << person.name() << "\", address: \"" << person.address() << "\" }";
+    return os;
+  }
 
 int main ()
-{
+  {
 
-  Person person;
-  person.name = "John Smith";
-  person.address = "Earth";
+    Person person;
+    person.set_name("John Smith");
+    person.set_address("Earth");
 
-  Person::print(cout, person);
+    Person::print(cout, person);
 
-  return 0;
-}
+    return 0;
+  }
+
