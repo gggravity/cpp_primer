@@ -34,6 +34,11 @@ class Screen
 
             const Screen &display (ostream &os) const;
 
+            [[nodiscard]] position size() const
+              {
+                return m_height * m_width;
+              }
+
       private:
             position m_height { 0 };
             position m_width { 0 };

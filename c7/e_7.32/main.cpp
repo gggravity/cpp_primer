@@ -11,6 +11,7 @@ try
     cout << "\n";
     myScreen.display(cout);
     cout << "\n";
+    cout << myScreen.size() << endl;
 
     return 0;
   }
