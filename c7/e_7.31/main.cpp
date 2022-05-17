@@ -1,22 +1,24 @@
 #include <iostream>
 
 class X;
+
 class Y;
 
+class X
+      {
+            Y *y_prt {};
+      };
 
-class X {
-  [[maybe_unused]] Y *yp = nullptr;
-};
-
-class Y {
-  [[maybe_unused]] X x;
-};
+class Y
+      {
+            X x {};
+      };
 
 int main ()
-{
-  X x;
-  Y y;
+  {
+    X x;
+    Y y;
 
-  std::cout << "Hello, World!" << std::endl;
-  return 0;
-}
+    std::cout << "Hello, World!" << std::endl;
+    return 0;
+  }
