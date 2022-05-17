@@ -29,7 +29,7 @@ class Screen
       private:
             position m_height { 0 };
             position m_width { 0 };
-            position m_curser { 0 };
+            position m_cursor { 0 };
             string m_contents;
 
       };

@@ -23,7 +23,7 @@ Screen::Screen (Screen::position height, Screen::position width, char character)
 
 char Screen::get () const
   {
-    return m_contents[m_curser];
+    return m_contents[m_cursor];
   }
 
 // Helper functions
@@ -34,6 +34,6 @@ char Screen::get () const
 Screen &Screen::move (Screen::position row, Screen::position character)
   {
     position r = row * m_width;
-    m_curser = r + character;
+    m_cursor = r + character;
     return *this;
   }
