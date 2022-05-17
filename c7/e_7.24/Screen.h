@@ -24,7 +24,7 @@ class Screen
                 return m_contents[r + width];
               }
 
-            Screen &move (position row, position character);
+            Screen &move (position row, position characters);
 
       private:
             position m_height { 0 };

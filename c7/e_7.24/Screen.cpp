@@ -31,9 +31,9 @@ char Screen::get () const
 //inline char Screen::get (Screen::position height, Screen::position width) const
 
 
-Screen &Screen::move (Screen::position row, Screen::position character)
+Screen &Screen::move (Screen::position row, Screen::position characters)
   {
     position r = row * m_width;
-    m_cursor = r + character;
+    m_cursor = r + characters;
     return *this;
   }
