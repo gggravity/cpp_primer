@@ -2,7 +2,7 @@
 
 using namespace std;
 
-void print (const deque<int>& deque)
+void print (const deque<int> &deque)
   {
     for (auto &d : deque)
       {
@@ -21,6 +21,15 @@ try
 
     deque_list.push_back(d1);
     deque_list.push_back(d2);
+
+    for (auto &d : deque_list)
+      {
+        print(d);
+      }
+
+    swap(deque_list.front(), deque_list.back());
+
+    cout << "---------------------------" << endl;
 
     for (auto &d : deque_list)
       {
