@@ -28,7 +28,7 @@ try
             cout << endl;
             return true;
       }();
-    
+
     return 0;
   }
 catch (exception &e)
