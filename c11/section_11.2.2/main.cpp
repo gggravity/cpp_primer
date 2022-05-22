@@ -8,6 +8,11 @@ bool is_punctuation (char c)
     return c == '.' || c == ',';
   }
 
+bool compareIsbn (const Sales_data &lhs, const Sales_data &rhs)
+  {
+    return lhs.isbn() < rhs.isbn();
+  }
+
 int main ()
 try
   {
@@ -51,18 +56,18 @@ try
 //        cout << endl;
 //      }
 
-    vector<int> vi { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
-    map<vector<int>::iterator, int> test_vector_map;
-
-    for (int i {0}; i < 5; ++i)
-      {
-        test_vector_map[vi.begin() + i ] = i;
-      }
-
-    for (auto &item : test_vector_map)
-      {
-        cout << "first: " << *item.first << ", second: " << item.second << endl;
-      }
+//    vector<int> vi { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+//    map<vector<int>::iterator, int> test_vector_map;
+//
+//    for (int i {0}; i < 5; ++i)
+//      {
+//        test_vector_map[vi.begin() + i ] = i;
+//      }
+//
+//    for (auto &item : test_vector_map)
+//      {
+//        cout << "first: " << *item.first << ", second: " << item.second << endl;
+//      }
 
 //    list<int> li { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
 //    map<list<int>::iterator, int> test_list_map;
@@ -76,6 +81,10 @@ try
 //      {
 //        cout << "first: " << *item.first << ", second: " << item.second << endl;
 //      }
+
+//    multiset<Sales_data, decltype(compareIsbn) *> bookstore(compareIsbn);
+
+    multiset<Sales_data, bool (*) (const Sales_data &, const Sales_data &)> bookstore(compareIsbn);
 
     return 0;
   }
