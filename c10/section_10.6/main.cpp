@@ -29,7 +29,7 @@ try
     print(ls, "list sorted");
     ls.unique();
     print(ls, "dup removed");
-    
+
     return 0;
   }
 catch (exception &e)
