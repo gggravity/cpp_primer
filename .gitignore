@@ -1,0 +1,7 @@
+**/cmake-build-debug
+**/cmake-build-debug-coverage
+**/Testing
+**/.idea
+*.exe
+cmake_install.cmake
+**/CMakeFiles
