@@ -2,6 +2,13 @@
 
 using namespace std;
 
+bool b ()
+  {
+    int *p = new int;
+    // ... an int will leak every time the function is run.
+    return p;
+  }
+
 vector<int> *factory ()
   {
     auto v = new vector<int>;
@@ -47,7 +54,7 @@ shared_ptr<vector<int>> read_shared_ptr (shared_ptr<vector<int>> v)
     return v;
   }
 
-void print_shared_ptr (const shared_ptr<vector<int>> &v)
+void print_shared_ptr (const shared_ptr<vector<int>> v)
   {
     for (auto &i : *v)
       {
@@ -74,13 +81,16 @@ try
     v_shared_ptr = read_shared_ptr(v_shared_ptr);
     print_shared_ptr(v_shared_ptr);
 
+    cout << "use_count: " << v_shared_ptr.use_count() << endl;
+
     // e 12.8
 
-    bool b {
-        int * p = new int;
-        // ... an int will leak every time the function is run.
-        return p;
-    };
+//    bool b ()
+//      {
+//        int *p = new int;
+//        // ... an int will leak every time the function is run.
+//        return p;
+//      }
 
     // e 12.9
 
