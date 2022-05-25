@@ -7,9 +7,9 @@ using namespace std;
 
 typedef map<string, set<int>> word_map;
 
-ostream &print (ostream &os, const string &s, vector<string> lines, word_map word_to_lines)
+ostream &print (ostream &os, const string &query, vector<string> lines, word_map word_to_lines)
   {
-    auto pos { word_to_lines.find(s) };
+    auto pos { word_to_lines.find(query) };
 
     size_t times;
 
@@ -22,7 +22,7 @@ ostream &print (ostream &os, const string &s, vector<string> lines, word_map wor
         times = 0;
       }
 
-    os << s << " occurs " << times << " times" << endl;
+    os << query << " occurs " << times << " times" << endl;
 
     for (auto &elem : pos->second)
       {
