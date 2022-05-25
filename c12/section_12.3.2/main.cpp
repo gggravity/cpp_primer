@@ -1,30 +1,18 @@
 #include <bits/stdc++.h>
 #include "TextQuery.h"
-#include "../section_12.3.2/QueryResult.h"
+#include "QueryResult.h"
 
 using namespace std;
 
 ostream &print (ostream &os, const QueryResult &qr)
   {
-    auto pos { qr.word_to_lines->find(qr.query) };
+    os << qr.sought << " occurs " << qr.lines->size() << " " << ( qr.lines->size() > 1 ? "times" : "time" ) << endl;
 
-    size_t times;
-
-    if (pos != qr.word_to_lines->end())
+    for (auto &num : *qr.lines)
       {
-        times = pos->second.size();
-      }
-    else
-      {
-        times = 0;
+        os << "\t(line " << num + 1 << ") " << *( qr.file->begin() + long(num) ) << endl;
       }
 
-    os << qr.query << " occurs " << times << " times" << endl;
-
-    for (auto &elem : pos->second)
-      {
-        cout << "(line " << elem << ") " << qr.lines->at(elem) << endl;
-      }
     return os;
   }
 

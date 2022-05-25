@@ -10,7 +10,7 @@ class TextQuery
             typedef map<string, set<int>> word_map;
 
       public:
-            explicit TextQuery (ifstream &infile);
+            [[maybe_unused]] explicit TextQuery (ifstream &infile);
 
             QueryResult query (const string& s);
 

@@ -5,7 +5,7 @@
 #include "TextQuery.h"
 //#include "QueryResult.h"
 
-TextQuery::TextQuery (ifstream &infile)
+[[maybe_unused]] TextQuery::TextQuery (ifstream &infile)
   {
     word_to_lines = make_shared<word_map>();
     lines = make_shared<vector<string>>();
