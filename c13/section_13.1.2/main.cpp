@@ -81,7 +81,7 @@ try
       {
         cout << i << ": " << sbp_2.dereference() << " ";
       }
-      
+
     // e 13.8
 
     string s { "some string....." };
