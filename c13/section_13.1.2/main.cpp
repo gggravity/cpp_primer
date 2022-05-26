@@ -81,8 +81,7 @@ try
       {
         cout << i << ": " << sbp_2.dereference() << " ";
       }
-
-
+      
     // e 13.8
 
     string s { "some string....." };
@@ -96,7 +95,7 @@ try
     auto hp_copy = hp;
     cout << hp_copy << endl;
 
-    HasPtr hp2 {string("xxx")};
+    HasPtr hp2 { string { "xxx" } };
     hp = hp2;
     cout << hp << endl;
 
