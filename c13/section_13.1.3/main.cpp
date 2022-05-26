@@ -165,7 +165,7 @@ try
         v.push_back(make_unique<X>(1, 2));
       }
     cout << "ending for loop" << endl;
-    
+
     return 0;
   }
 catch (exception &e)
