@@ -20,17 +20,45 @@ try
 //
 //    cout << "-------------" << endl;
 
-    tree_node node1 { "node 1", 100, nullptr, nullptr };
-    tree_node node2 { "node 2", 200, nullptr, nullptr };
 
-    bin_str_tree str_node1 { &node1 };
-    bin_str_tree str_node2 { &node2 };
+    // destructor test
+//    auto node1left = new tree_node { "node1left", 0, nullptr, nullptr };
+//    auto node1right = new tree_node { "node1right", 0, nullptr, nullptr };
+//    auto node2left = new tree_node { "node2left ", 0, nullptr, nullptr };
+//    auto node2right = new tree_node { "node2right", 0, nullptr, nullptr };
+//
+//    auto root1 = new tree_node { "node 1", 1, node1left, node1right };
+//////    delete root1;
+////
+//    auto root2 = new tree_node { "node 2", 1, node2left, node2right };
+////    delete root2;
 
-    cout << node1 << endl;
-    cout << node2 << endl;
+//    bin_str_tree str_node1 { root1 };
+//    bin_str_tree str_node2 { root2 };
 
-    cout << str_node1 << endl;
-    cout << str_node2 << endl;
+//    auto node1 = new tree_node();
+//    auto node2 = new tree_node(*root1);
+//    cout << "-----" << endl;
+//    tree_node t1;
+//    tree_node t2 { "t1", 1, node1left, node1right };
+//    t1 = t2;
+//    node1 = root1; // assignment operator are not used with points?
+//    cout << "-----" << endl;
+//
+//    cout << "node1: " << *node1 << endl;
+//    cout << "node2: " << *node2 << endl;
+//    cout << "root1: " << *root1 << endl;
+
+    tree_node node { "test node", 0, nullptr, nullptr };
+    bin_str_tree bst1 { &node };
+//    bin_str_tree bst2(bst1);
+//    bin_str_tree bst3;
+
+//    bst3 = bst1;
+
+//    cout << bst1 << endl;
+//    cout << bst2 << endl;
+//    cout << bst3 << endl;
 
     return 0;
   }
