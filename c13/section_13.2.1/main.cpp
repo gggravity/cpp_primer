@@ -68,7 +68,6 @@ try
     // 13.25
     // the string need to be copied on the copy and copy-assign constructors, else the pointers will point to the same string.
     // smart pointers are used, so no need for a destructor.
-    
     Str_blob sb1 { "one", "two", "three" };
     Str_blob sb2 { sb1 };
     sb2.push_back("four");
