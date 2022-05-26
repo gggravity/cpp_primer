@@ -41,6 +41,7 @@ class HasPtr
 
             virtual ~HasPtr ()
               {
+                delete ps;
                 cout << "destroying has_prt" << endl;
               }
 
