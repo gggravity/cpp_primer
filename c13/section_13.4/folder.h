@@ -3,6 +3,7 @@
 // Created by martin on 27/05/2022.
 //
 #include<bits/stdc++.h>
+#include <ostream>
 #include "message.h"
 
 using namespace std;
@@ -11,7 +12,7 @@ class message;
 
 struct folder
    {
-      folder () = default;
+      explicit folder (string name = "unknown folder");
 
       folder (const folder &folder);
 
@@ -23,11 +24,15 @@ struct folder
 
       void erase (message &message);
 
-      void swap (message &lhs, message &rhs);
+      void print_content ();
 
-      void print ();
+      [[nodiscard]] const string &name () const;
+
+      friend ostream &operator<< (ostream &os, const folder &folder);
 
    private:
+      string m_name;
+
       set<message *> messages;
 
       void add_message (message *message);
@@ -35,4 +40,10 @@ struct folder
       void remove_message (message *message);
 
       friend struct message;
+
+      friend void swap (folder &lhs, folder &rhs);
+
+      friend void swap (message &lhs, message &rhs);
    };
+
+void swap (folder &lhs, folder &rhs);

@@ -34,32 +34,6 @@ message::~message ()
     remove_from_folders();
   }
 
-void message::swap (message &lhs, message &rhs)
-  {
-    using std::swap;
-
-    for (auto folder : lhs.folders)
-      {
-        folder->remove_message(&lhs);
-      }
-    for (auto folder : rhs.folders)
-      {
-        folder->remove_message(&rhs);
-      }
-
-    swap(lhs.folders, rhs.folders);
-    swap(lhs.contents, rhs.contents);
-
-    for (auto folder : lhs.folders)
-      {
-        folder->add_message(&lhs);
-      }
-    for (auto folder : rhs.folders)
-      {
-        folder->add_message(&rhs);
-      }
-  }
-
 void message::save (folder &folder)
   {
     folders.insert(&folder);
@@ -92,4 +66,42 @@ ostream &operator<< (ostream &os, const message &message)
   {
     os << "\"" << message.contents << "\"";
     return os;
+  }
+
+void swap (message &lhs, message &rhs)
+  {
+    using std::swap;
+
+    for (auto folder : lhs.folders)
+      {
+        folder->remove_message(&lhs);
+      }
+    for (auto folder : rhs.folders)
+      {
+        folder->remove_message(&rhs);
+      }
+
+    swap(lhs.folders, rhs.folders);
+    swap(lhs.contents, rhs.contents);
+
+    for (auto folder : lhs.folders)
+      {
+        folder->add_message(&lhs);
+      }
+    for (auto folder : rhs.folders)
+      {
+        folder->add_message(&rhs);
+      }
+  }
+
+void message::print_folders ()
+  {
+    if (folders.empty())
+      {
+        cout << "the folder is empty";
+      }
+    for (auto &folder : folders)
+      {
+        cout << "\"" << *folder << "\"" << " ";
+      }
   }

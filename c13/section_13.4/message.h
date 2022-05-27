@@ -20,11 +20,11 @@ struct message
 
       ~message ();
 
-      void swap (message &lhs, message &rhs);
-
       void save (folder &folder);
 
       void remove (folder &folder);
+
+      void print_folders();
 
       friend ostream &operator<< (ostream &os, const message &message);
 
@@ -38,4 +38,10 @@ struct message
 
       friend struct folder;
 
+      friend void swap (folder &lhs, folder &rhs);
+
+      friend void swap (message &lhs, message &rhs);
+
    };
+
+void swap (message &lhs, message &rhs);

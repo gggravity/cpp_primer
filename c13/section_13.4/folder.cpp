@@ -4,8 +4,17 @@
 
 #include "folder.h"
 
+#include <utility>
+
+folder::folder (string name) :
+    m_name(move(name))
+  {
+
+  }
+
 folder::folder (const folder &folder) :
-    messages(folder.messages)
+    messages(folder.messages),
+    m_name(folder.m_name)
   {
     for (auto &message : messages)
       {
@@ -15,6 +24,8 @@ folder::folder (const folder &folder) :
 
 folder &folder::operator= (const folder &rhs)
   {
+    m_name = rhs.m_name;
+
     for (auto &message : messages)
       {
         message->folders.erase(this);
@@ -60,38 +71,48 @@ void folder::remove_message (message *message)
     messages.erase(message);
   }
 
-void folder::swap (message &lhs, message &rhs)
-  {
-    using std::swap;
-
-    for (auto folder : lhs.folders)
-      {
-        folder->remove_message(&lhs);
-      }
-    for (auto folder : rhs.folders)
-      {
-        folder->remove_message(&rhs);
-      }
-
-    swap(lhs.folders, rhs.folders);
-    swap(lhs.contents, rhs.contents);
-
-    for (auto folder : lhs.folders)
-      {
-        folder->add_message(&lhs);
-      }
-    for (auto folder : rhs.folders)
-      {
-        folder->add_message(&rhs);
-      }
-  }
-
-void folder::print ()
+void folder::print_content ()
   {
     for (auto &message : messages)
       {
         cout << *message << " ";
       }
-      cout << endl;
+    cout << endl;
   }
 
+void swap (folder &lhs, folder &rhs)
+  {
+    using std::swap;
+
+    for (auto &message : lhs.messages)
+      {
+        message->folders.erase(&lhs);
+      }
+    for (auto &message : rhs.messages)
+      {
+        message->folders.erase(&rhs);
+      }
+
+    swap(lhs.m_name, rhs.m_name);
+    swap(lhs.messages, rhs.messages);
+
+    for (auto &message : lhs.messages)
+      {
+        message->folders.insert(&lhs);
+      }
+    for (auto &message : rhs.messages)
+      {
+        message->folders.insert(&rhs);
+      }
+  }
+
+const string &folder::name () const
+  {
+    return m_name;
+  }
+
+ostream &operator<< (ostream &os, const folder &folder)
+  {
+    os << folder.name();
+    return os;
+  }
