@@ -1,21 +1,21 @@
 #include <bits/stdc++.h>
-#include "Message.h"
-#include "Folder.h"
+#include "message.h"
+#include "folder.h"
 
 using namespace std;
 
 int main ()
 try
   {
-    Message m1 { "message no 1" };
-    Message m2 { "message no 2" };
-    Message m3 { "message no 3" };
-    Message m4 { "message no 4" };
-    Message m5 { "message no 5" };
-    Message m6 { "message no 6" };
+    message m1 { "message no 1" };
+    message m2 { "message no 2" };
+    message m3 { "message no 3" };
+    message m4 { "message no 4" };
+    message m5 { "message no 5" };
+    message m6 { "message no 6" };
 
-    Folder folder1;
-    Folder folder2;
+    folder folder1;
+    folder folder2;
 
     folder1.insert(m1);
     folder1.insert(m2);

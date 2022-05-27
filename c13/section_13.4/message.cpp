@@ -2,17 +2,17 @@
 // Created by martin on 27/05/2022.
 //
 
-#include "Message.h"
-#include "Folder.h"
+#include "message.h"
+#include "folder.h"
 
-Message::Message (const string &str) :
+message::message (const string &str) :
     contents(str)
   {
 
   }
 
 // copy constructor
-Message::Message (const Message &message) :
+message::message (const message &message) :
     contents(message.contents),
     folders(message.folders)
   {
@@ -20,7 +20,7 @@ Message::Message (const Message &message) :
   }
 
 // copy assignment
-Message &Message::operator= (const Message &rhs)
+message &message::operator= (const message &rhs)
   {
     remove_from_folders();
     contents = rhs.contents;
@@ -29,12 +29,12 @@ Message &Message::operator= (const Message &rhs)
     return *this;
   }
 
-Message::~Message ()
+message::~message ()
   {
     remove_from_folders();
   }
 
-void Message::swap (Message &lhs, Message &rhs)
+void message::swap (message &lhs, message &rhs)
   {
     using std::swap;
 
@@ -60,19 +60,19 @@ void Message::swap (Message &lhs, Message &rhs)
       }
   }
 
-void Message::save (Folder &folder)
+void message::save (folder &folder)
   {
     folders.insert(&folder);
     folder.add_message(this);
   }
 
-void Message::remove (Folder &folder)
+void message::remove (folder &folder)
   {
     folders.erase(&folder);
     folder.remove_message(this);
   }
 
-void Message::add_to_folders (const Message &message)
+void message::add_to_folders (const message &message)
   {
     for (auto folder : message.folders)
       {
@@ -80,7 +80,7 @@ void Message::add_to_folders (const Message &message)
       }
   }
 
-void Message::remove_from_folders ()
+void message::remove_from_folders ()
   {
     for (auto folder : folders)
       {
@@ -88,7 +88,7 @@ void Message::remove_from_folders ()
       }
   }
 
-ostream &operator<< (ostream &os, const Message &message)
+ostream &operator<< (ostream &os, const message &message)
   {
     os << "\"" << message.contents << "\"";
     return os;

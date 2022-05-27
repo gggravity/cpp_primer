@@ -2,9 +2,9 @@
 // Created by martin on 27/05/2022.
 //
 
-#include "Folder.h"
+#include "folder.h"
 
-Folder::Folder (const Folder &folder) :
+folder::folder (const folder &folder) :
     messages(folder.messages)
   {
     for (auto &message : messages)
@@ -13,7 +13,7 @@ Folder::Folder (const Folder &folder) :
       }
   }
 
-Folder &Folder::operator= (const Folder &rhs)
+folder &folder::operator= (const folder &rhs)
   {
     for (auto &message : messages)
       {
@@ -30,7 +30,7 @@ Folder &Folder::operator= (const Folder &rhs)
     return *this;
   }
 
-Folder::~Folder ()
+folder::~folder ()
   {
     for (auto &message : messages)
       {
@@ -38,29 +38,29 @@ Folder::~Folder ()
       }
   }
 
-void Folder::insert (Message &message)
+void folder::insert (message &message)
   {
     messages.insert(&message);
     message.folders.insert(this);
   }
 
-void Folder::erase (Message &message)
+void folder::erase (message &message)
   {
     messages.erase(&message);
     message.folders.erase(this);
   }
 
-void Folder::add_message (Message *message)
+void folder::add_message (message *message)
   {
     messages.insert(message);
   }
 
-void Folder::remove_message (Message *message)
+void folder::remove_message (message *message)
   {
     messages.erase(message);
   }
 
-void Folder::swap (Message &lhs, Message &rhs)
+void folder::swap (message &lhs, message &rhs)
   {
     using std::swap;
 
@@ -86,7 +86,7 @@ void Folder::swap (Message &lhs, Message &rhs)
       }
   }
 
-void Folder::print ()
+void folder::print ()
   {
     for (auto &message : messages)
       {

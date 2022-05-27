@@ -5,7 +5,7 @@ set(CMAKE_CXX_STANDARD 20)
 
 #find_package(Boost REQUIRED)
 
-add_executable(app main.cpp message.cpp Message.h folder.cpp Folder.h)
+add_executable(app main.cpp message.cpp message.h folder.cpp folder.h)
 
 #target_link_libraries(app ${Boost_LIBRARIES})
 
