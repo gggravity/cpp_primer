@@ -3,6 +3,7 @@
 // Created by martin on 27/05/2022.
 //
 #include<bits/stdc++.h>
+#include <ostream>
 #include "Folder.h"
 
 using namespace std;
@@ -27,6 +28,8 @@ class Message
       void save (Folder &folder);
 
       void remove (Folder &folder);
+
+      friend ostream &operator<< (ostream &os, const Message &message);
 
    private:
       string contents;

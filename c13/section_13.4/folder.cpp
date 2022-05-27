@@ -4,6 +4,52 @@
 
 #include "Folder.h"
 
+Folder::Folder (const Folder &folder) :
+    messages(folder.messages)
+  {
+    for (auto &message : messages)
+      {
+        message->folders.insert(this);
+      }
+  }
+
+Folder &Folder::operator= (const Folder &rhs)
+  {
+    for (auto &message : messages)
+      {
+        message->folders.erase(this);
+      }
+
+    messages = rhs.messages;
+
+    for (auto &message : messages)
+      {
+        message->folders.insert(this);
+      }
+
+    return *this;
+  }
+
+Folder::~Folder ()
+  {
+    for (auto &message : messages)
+      {
+        message->folders.erase(this);
+      }
+  }
+
+void Folder::insert (Message &message)
+  {
+    messages.insert(&message);
+    message.folders.insert(this);
+  }
+
+void Folder::erase (Message &message)
+  {
+    messages.erase(&message);
+    message.folders.erase(this);
+  }
+
 void Folder::add_message (Message *message)
   {
     messages.insert(message);
@@ -39,3 +85,13 @@ void Folder::swap (Message &lhs, Message &rhs)
         folder->add_message(&rhs);
       }
   }
+
+void Folder::print ()
+  {
+    for (auto &message : messages)
+      {
+        cout << *message << " ";
+      }
+      cout << endl;
+  }
+

@@ -87,3 +87,9 @@ void Message::remove_from_folders ()
         folder->remove_message(this);
       }
   }
+
+ostream &operator<< (ostream &os, const Message &message)
+  {
+    os << "\"" << message.contents << "\"";
+    return os;
+  }

@@ -16,17 +16,19 @@ class Folder
    public:
       Folder () = default;
 
-      Folder (const Folder &);
+      Folder (const Folder &folder);
 
-      Folder &operator= (const Folder &);
+      Folder &operator= (const Folder &rhs);
 
       ~Folder ();
 
-      void save (Message &);
+      void insert (Message &message);
 
-      void remove (Message &);
+      void erase (Message &message);
 
       void swap (Message &lhs, Message &rhs);
+
+      void print();
 
    private:
       set<Message *> messages;
