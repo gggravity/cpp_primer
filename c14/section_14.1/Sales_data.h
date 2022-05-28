@@ -60,6 +60,8 @@ class Sales_data
 
    };
 
+istream &operator>> (istream &is, Sales_data &data);
+
 ostream &operator<< (ostream &os, const Sales_data &data);
 
 Sales_data operator+ (const Sales_data &lhs, const Sales_data &rhs);

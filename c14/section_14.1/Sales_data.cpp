@@ -112,6 +112,29 @@ Sales_data &Sales_data::operator+= (const Sales_data &other)
     return *this;
   }
 
+istream &operator>> (istream &is, Sales_data &data)
+  {
+    char c1;
+    char c2;
+    string isbn;
+    int units_sold;
+    double revenue;
+
+    is >> c1 >> isbn >> units_sold >> revenue >> c2;
+
+    if (c1 != '{' || c2 != '}' || !isalnum(isbn[0]))
+      {
+        throw runtime_error("bad input");
+        return is;
+      }
+
+    data.set_isbn(isbn);
+    data.set_units_sold(units_sold);
+    data.set_revenue(revenue);
+
+    return is;
+  }
+
 ostream &operator<< (ostream &os, const Sales_data &data)
   {
     os << "isbn: " << data.isbn() << " units_sold: " << data.units_sold() << " revenue: " << data.revenue();
