@@ -85,7 +85,7 @@ try
     // works :-)
 
     // e 13.58
-    // see operator<< 
+    // see operator<<
 
     return 0;
   }
