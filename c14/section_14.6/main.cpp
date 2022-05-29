@@ -13,15 +13,15 @@ try
 
     Str_blob_ptr sbp { sb };
 
-    cout << "dereference: " << (sbp++).dereference() << endl;
-    cout << "dereference: " << (sbp++).dereference() << endl;
-    cout << "dereference: " << (sbp++).dereference() << endl;
-    cout << "dereference: " << (sbp++).dereference() << endl;
+    cout << "dereference: " << *sbp++ << endl;
+    cout << "dereference: " << *sbp++ << endl;
+    cout << "dereference: " << *sbp++ << endl;
+    cout << "dereference: " << *sbp++ << endl;
 
-    cout << "dereference: " << (--sbp).dereference() << endl;
-    cout << "dereference: " << (--sbp).dereference() << endl;
-    cout << "dereference: " << (--sbp).dereference() << endl;
-    cout << "dereference: " << (--sbp).dereference() << endl;
+    cout << "dereference: " << *--sbp << endl;
+    cout << "dereference: " << *--sbp << endl;
+    cout << "dereference: " << *--sbp << endl;
+    cout << "dereference: " << *--sbp << endl;
 
     return 0;
   }

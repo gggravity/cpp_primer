@@ -186,3 +186,19 @@ Str_blob_ptr &Str_blob_ptr::operator+ ()
   {
     return ++*this;
   }
+
+Str_blob_ptr &Str_blob_ptr::operator- ()
+  {
+    return --*this;
+  }
+
+string &Str_blob_ptr::operator* () const
+  {
+    auto p = check(current, "dereference past end");
+    return ( *p )[current];
+  }
+
+string *Str_blob_ptr::operator-> () const
+  {
+    return &this->operator*();
+  }
