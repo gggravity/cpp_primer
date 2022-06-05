@@ -7,33 +7,28 @@
 
 using namespace std;
 
-class DebugDelete
+struct DebugDelete
    {
-   public:
-      explicit DebugDelete (ostream &os = cerr) :
-          os(os)
-        {
-
-        }
-
       template < typename T >
-      void operator() (T *p) const
+      auto operator() (T *p) const
         {
-          os << "deleting pointer at: " << p << endl;
+          cout << "deleting pointer at: " << p << endl;
           delete p;
         }
-
-   private:
-      ostream &os;
    };
 
 template < typename T, typename D = DebugDelete >
 class UniquePointer
    {
    public:
-      UniquePointer (T *ptr, const D &d = D()) :
+
+      UniquePointer (const UniquePointer &) = delete;
+
+      UniquePointer &operator= (const UniquePointer &) = delete;
+
+      UniquePointer (T *ptr = nullptr, const D &d = D()) noexcept :
           current_ptr(ptr),
-          deleter(deleter)
+          deleter(d)
         {
 
         }
@@ -58,7 +53,7 @@ class UniquePointer
           return *this;
         }
 
-      T &operator* ()
+      T &operator* () const
         {
           if (current_ptr == nullptr)
             {
@@ -69,10 +64,14 @@ class UniquePointer
           return *current_ptr;
         }
 
-      friend ostream &operator<< (ostream &os, const UniquePointer &unique_pointer)
+      T *operator-> () const noexcept
         {
-          os << unique_pointer.current_ptr;
-          return os;
+          return get();
+        }
+
+      T &operator[] (size_t i) const noexcept
+        {
+          return current_ptr[i];
         }
 
       virtual ~UniquePointer ()
@@ -96,18 +95,15 @@ class UniquePointer
           // If the old pointer was non-empty, deletes the previously managed object if(old_ptr) get_deleter()(old_ptr).
           if (old_ptr)
             {
-              get_deleter()(old_ptr);
+              deleter(old_ptr);
             }
         }
 
       void swap (UniquePointer &other) noexcept
         {
-//          auto temp = current_ptr;
-//          current_ptr = other.current_ptr;
-//          other.current_ptr = temp;
           using std::swap;
           swap(current_ptr, other.current_ptr);
-//          swap(deleter, other.deleter);
+          swap(deleter, other.deleter);
         }
 
       T *get () const noexcept
@@ -115,12 +111,17 @@ class UniquePointer
           return current_ptr;
         }
 
-      D get_deleter ()
+      explicit operator bool () const noexcept
+        {
+          return get() != nullptr;
+        }
+
+      const D &get_deleter () const noexcept
         {
           return deleter;
         }
 
    private:
-      T *current_ptr;
+      T *current_ptr = nullptr;
       D deleter;
    };
