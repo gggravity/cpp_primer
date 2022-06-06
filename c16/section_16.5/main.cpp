@@ -23,7 +23,7 @@ template <>
 auto count_occurrences (vector<const char*> container, const char* value)
   {
     cout << "I am special..." << endl;
-    
+
     size_t counter { 0 };
 
     for (auto &i : container)
