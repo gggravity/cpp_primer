@@ -101,7 +101,7 @@ class SharedPointer
 
       explicit operator bool () const noexcept
         {
-          return get() ? true : false;
+          return get();
         }
 
    private:
