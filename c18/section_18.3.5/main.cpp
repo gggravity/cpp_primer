@@ -101,7 +101,6 @@ int main ()
     cout << "---------------------" << endl;
     Final final;
 
-
 //    Base *pb;
 //    Class *cp;
 //    MI *pmi;
