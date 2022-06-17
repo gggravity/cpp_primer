@@ -1,6 +1,6 @@
 #include <bits/stdc++.h>
 
-// not working on windows
+// not working on Windows
 // allocator not working with c++20
 
 using namespace std;
@@ -39,6 +39,7 @@ int main ()
     for (auto iter = sv_ptr->begin() ; iter != sv_ptr->end() ; iter++)
       {
         cout << *iter << " ";
+        vector<string> sv;
       }
     cout << endl;
 
