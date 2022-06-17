@@ -6,15 +6,9 @@ using namespace std;
 class A
    {
    public:
-      A ()
-        {
+      A () = default;
 
-        }
-
-      virtual ~A ()
-        {
-
-        }
+      virtual ~A () = default;
 
       friend std::ostream &operator<< (ostream &os, const A &a)
         {
@@ -26,29 +20,17 @@ class A
 class B : public A
    {
    public:
-      B ()
-        {
+      B () = default;
 
-        }
-
-      virtual ~B ()
-        {
-
-        }
+      virtual ~B () = default;
    };
 
 class C : public B
    {
    public:
-      C ()
-        {
+      C () = default;
 
-        }
-
-      virtual ~C ()
-        {
-
-        }
+      virtual ~C () = default;
 
       friend std::ostream &operator<< (ostream &os, const C &c)
         {
