@@ -6,30 +6,29 @@
 using namespace std;
 
 class Screen
-      {
-      public:
-            using position = string::size_type;
+{
+public:
 
-            Screen () = default;
+  using position = string::size_type;
 
-            Screen (position height, position width, char character);
+  Screen() = default;
 
-            [[nodiscard]] char get () const;
+  Screen (position height, position width, char character);
 
-            [[nodiscard]] inline char get (position height, position width) const
-              {
-                position r = height * width;
-                return m_contents[r + width];
-              }
+  [[nodiscard]] char get() const;
 
-            Screen &move (position row, position character);
+  [[nodiscard]] inline char get (position height, position width) const
+  {
+    position r = height * width;
+    return m_contents[r + width];
+  }
 
-      private:
-            position m_height { 0 };
-            position m_width { 0 };
-            position m_curser { 0 };
-            string m_contents;
+  Screen &move (position row, position character);
 
-      };
+private:
 
-
+  position m_height {0};
+  position m_width {0};
+  position m_curser {0};
+  string m_contents;
+};

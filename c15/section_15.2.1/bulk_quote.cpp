@@ -4,7 +4,4 @@
 
 #include "bulk_quote.h"
 
-double bulk_quote::net_price (size_t n) const
-  {
-    return quote::net_price(n);
-  }
+double bulk_quote::net_price (size_t n) const { return quote::net_price (n); }

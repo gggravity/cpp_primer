@@ -3,44 +3,44 @@
 int main()
 {
 
-    for (int score = 100; score >= 0; score--)
+  for (int score = 100; score >= 0; score--)
     {
-        if (score < 60)
+      if (score < 60)
         {
-            std::cout << "score: " << score << " grade: F";
+          std::cout << "score: " << score << " grade: F";
         }
-        if (score >= 60 && score < 70)
+      if (score >= 60 && score < 70)
         {
-            std::cout << "score: " << score << " grade: D";
+          std::cout << "score: " << score << " grade: D";
         }
-        if (score >= 70 && score < 80)
+      if (score >= 70 && score < 80)
         {
-            std::cout << "score: " << score << " grade: C";
+          std::cout << "score: " << score << " grade: C";
         }
-        if (score >= 80 && score < 90)
+      if (score >= 80 && score < 90)
         {
-            std::cout << "score: " << score << " grade: B";
+          std::cout << "score: " << score << " grade: B";
         }
-        if (score >= 90 && score < 100)
+      if (score >= 90 && score < 100)
         {
-            std::cout << "score: " << score << " grade: A";
+          std::cout << "score: " << score << " grade: A";
         }
-        if (score == 100)
+      if (score == 100)
         {
-            std::cout << "score: " << score << " grade: A++";
+          std::cout << "score: " << score << " grade: A++";
         }
-        if (score != 100 && score >= 60)
+      if (score != 100 && score >= 60)
         {
-            if (score % 10 > 7)
+          if (score % 10 > 7)
             {
-                std::cout << "+";
+              std::cout << "+";
             }
-            if (score % 10 < 3)
+          if (score % 10 < 3)
             {
-                std::cout << "-";
+              std::cout << "-";
             }
         }
-        std::cout << std::endl;
+      std::cout << std::endl;
     }
-    return 0;
+  return 0;
 }

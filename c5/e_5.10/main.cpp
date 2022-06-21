@@ -1,33 +1,38 @@
 #include <iostream>
 
-int main ()
+int main()
 {
   char ch;
-  int aCnt{0}, eCnt{0}, iCnt{0}, oCnt{0}, uCnt{0}, otherCnt{0};
+  int aCnt {0}, eCnt {0}, iCnt {0}, oCnt {0}, uCnt {0}, otherCnt {0};
 
   while (std::cin >> ch)
     {
       switch (ch)
         {
-      case 'a':
-      case 'A':++aCnt;
+        case 'a':
+        case 'A':
+          ++aCnt;
           break;
-      case 'e':
-      case 'E':++eCnt;
+        case 'e':
+        case 'E':
+          ++eCnt;
           break;
-      case 'i':
-      case 'I':++iCnt;
+        case 'i':
+        case 'I':
+          ++iCnt;
           break;
-      case 'o':
-      case 'O':++oCnt;
+        case 'o':
+        case 'O':
+          ++oCnt;
           break;
-      case 'u':
-      case 'U':++uCnt;
+        case 'u':
+        case 'U':
+          ++uCnt;
           break;
-      default:++otherCnt;
+        default:
+          ++otherCnt;
           break;
         }
-
     }
   std::cout << "The vowel counts are:" << std::endl;
   std::cout << "aA: " << aCnt << std::endl;

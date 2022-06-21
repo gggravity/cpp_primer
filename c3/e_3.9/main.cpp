@@ -2,8 +2,8 @@
 
 int main()
 {
-    std::string s;
-    std::cout << s[0] << std::endl;
+  std::string s;
+  std::cout << s[0] << std::endl;
 
-    return 0;
+  return 0;
 }

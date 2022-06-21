@@ -1,9 +1,9 @@
-#include <bits/stdc++.h>
 #include "Token.h"
+#include <bits/stdc++.h>
 
 using namespace std;
 
-int main ()
+int main()
 try
   {
     Token token;
@@ -16,7 +16,7 @@ try
 
     cout << token << endl;
 
-    token = string("Hello World!!!");
+    token = string ("Hello World!!!");
 
     cout << token << endl;
 
@@ -24,7 +24,7 @@ try
 
     cout << token << endl;
 
-    token = SalesData { "123-XXX", 1, 1 };
+    token = SalesData {"123-XXX", 1, 1};
 
     cout << token << endl;
 
@@ -34,5 +34,3 @@ catch (exception &e)
   {
     cerr << "Error: " << e.what() << endl;
   }
-
-

@@ -4,15 +4,17 @@ using namespace std;
 
 // match match semi automatic star fleet Fleet Star Star someone is lying .
 
-int main ()
+int main()
 {
   string buffer, last_word;
   bool not_found = true;
 
   while (cin >> buffer && buffer != ".")
     {
-      if (!isupper (buffer[0]))
-        continue;
+      if (! isupper (buffer[0]))
+        {
+          continue;
+        }
       if (buffer == last_word)
         {
           cout << buffer;
@@ -25,7 +27,9 @@ int main ()
         }
     }
   if (not_found)
-    cout << "No match found.";
+    {
+      cout << "No match found.";
+    }
 
   return 0;
 }

@@ -9,9 +9,9 @@ void swap (int &a, int &b)
   b = temp;
 }
 
-int main ()
+int main()
 {
-  int a{123}, b{321};
+  int a {123}, b {321};
 
   cout << "a = " << a << ", b = " << b << endl;
   swap (a, b);

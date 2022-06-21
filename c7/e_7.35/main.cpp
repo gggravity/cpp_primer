@@ -4,34 +4,33 @@ using namespace std;
 
 typedef string Type;
 
-Type initVal ();
+Type initVal();
 
 class Exercise
-      {
-      public:
-//            typedef double Type;
+{
+public:
 
-            Type setVal (Type type)
-              {
-                cout << "Type: " << type << endl;
-                return {};
-              }
+  //            typedef double Type;
 
-            Type initVal ()
-              {
-                return {};
-              }
+  Type setVal (Type type)
+  {
+    cout << "Type: " << type << endl;
+    return {};
+  }
 
-      private:
-            int val;
-      };
+  Type initVal() { return {}; }
 
-int main ()
+private:
+
+  int val;
+};
+
+int main()
 try
   {
     Exercise exercise;
-//    exercise.setVal(1.1f);
-    exercise.setVal("1.1f");
+    //    exercise.setVal(1.1f);
+    exercise.setVal ("1.1f");
 
     cout << "Exercise 7.35" << endl;
     return 0;

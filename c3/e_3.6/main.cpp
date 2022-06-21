@@ -2,16 +2,16 @@
 
 int main()
 {
-    std::string string{"Some test string"};
+  std::string string {"Some test string"};
 
-    std::cout << string << std::endl;
+  std::cout << string << std::endl;
 
-    for (auto &s : string)
+  for (auto &s : string)
     {
-        s = 'X';
+      s = 'X';
     }
 
-    std::cout << string << std::endl;
+  std::cout << string << std::endl;
 
-    return 0;
+  return 0;
 }

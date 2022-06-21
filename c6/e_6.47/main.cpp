@@ -10,19 +10,21 @@ void print_int_vector (vector<int>::iterator begin, vector<int>::iterator end)
        << endl;
 #endif
   if (begin == end)
-    return;
+    {
+      return;
+    }
   cout << *begin++ << " ";
   print_int_vector (begin, end);
 }
 
-int main ()
+int main()
 {
 #ifndef NDEBUG
   cout << "test" << endl;
 #endif
-  vector<int> vec{0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
+  vector<int> vec {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
 
-  print_int_vector (vec.begin (), vec.end ());
+  print_int_vector (vec.begin(), vec.end());
 
   return 0;
 }

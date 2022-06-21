@@ -3,25 +3,26 @@
 //
 #pragma once
 
-#include <bits/stdc++.h>
 #include "string_vector.h"
+#include <bits/stdc++.h>
 
 using namespace std;
 
 class QueryResult;
 
 class TextQuery
-      {
-      public:
-            using line_no = size_t;
+{
+public:
 
-            TextQuery (ifstream &ifs);
+  using line_no = size_t;
 
-            QueryResult query (const string &query) const;
+  TextQuery (ifstream &ifs);
 
-      private:
-            shared_ptr<string_vector> file;
+  QueryResult query (const string &query) const;
 
-            map<string, shared_ptr<set<line_no>>> wm;
+private:
 
-      };
+  shared_ptr<string_vector> file;
+
+  map<string, shared_ptr<set<line_no>>> wm;
+};

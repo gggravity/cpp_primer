@@ -2,20 +2,20 @@
 
 int main()
 {
-    int array[33];
+  int array[33];
 
-    int *b = std::begin(array);
-    int *e = std::end(array);
+  int *b = std::begin (array);
+  int *e = std::end (array);
 
-    for (; b < e; b++)
+  for (; b < e; b++)
     {
-        *b = 0;
+      *b = 0;
     }
 
-    for (int a : array)
+  for (int a : array)
     {
-        std::cout << a << " ";
+      std::cout << a << " ";
     }
 
-    return 0;
+  return 0;
 }

@@ -1,29 +1,29 @@
 #pragma once
 
-#include <bits/stdc++.h>
 #include "discount_quote.h"
+#include <bits/stdc++.h>
 
 using namespace std;
 
 class limited_discount : public discount_quote
-   {
-   public:
-      using discount_quote::discount_quote;
+{
+public:
 
-      limited_discount (const limited_discount &other); // copy constructor
+  using discount_quote::discount_quote;
 
-      limited_discount &operator= (const limited_discount &other); // copy assignment operator
+  limited_discount (const limited_discount &other);  // copy constructor
 
-      limited_discount (limited_discount &&other) noexcept; // move constructor
+  limited_discount &operator= (const limited_discount &other);  // copy assignment operator
 
-      limited_discount &operator= (limited_discount &&other) noexcept; // move assignment operator
+  limited_discount (limited_discount &&other) noexcept;  // move constructor
 
-      ~limited_discount () override;
+  limited_discount &operator= (limited_discount &&other) noexcept;  // move assignment operator
 
-      limited_discount (const string &name, double price, size_t quantity, double discount);
+  ~limited_discount() override;
 
-      [[nodiscard]] double net_price (size_t count) const override;
+  limited_discount (const string &name, double price, size_t quantity, double discount);
 
-      void debug () override;
+  [[nodiscard]] double net_price (size_t count) const override;
 
-   };
+  void debug() override;
+};

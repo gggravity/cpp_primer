@@ -9,55 +9,52 @@ using namespace std;
 // 0-201-78655 5 98.50
 
 class Sales_data
-      {
-      public:
-            // constructors
+{
+public:
 
-            Sales_data();
+  // constructors
 
-            Sales_data (string book_number);
+  Sales_data();
 
-            Sales_data (string book_number, unsigned units_sold, double price);
+  Sales_data (string book_number);
 
-            virtual ~Sales_data ();
+  Sales_data (string book_number, unsigned units_sold, double price);
 
-            explicit Sales_data (istream &is);
+  virtual ~Sales_data();
 
-            // methods
+  explicit Sales_data (istream &is);
 
-            Sales_data &combine (const Sales_data &rhs);
+  // methods
 
-            // getters and setters
+  Sales_data &combine (const Sales_data &rhs);
 
-            [[nodiscard]] const string &isbn () const;
+  // getters and setters
 
-            void set_isbn (const string &book_no);
+  [[nodiscard]] const string &isbn() const;
 
-            [[nodiscard]] unsigned int units_sold () const;
+  void set_isbn (const string &book_no);
 
-            void set_units_sold (unsigned int units_sold);
+  [[nodiscard]] unsigned int units_sold() const;
 
-            [[nodiscard]] double revenue () const;
+  void set_units_sold (unsigned int units_sold);
 
-            void set_revenue (double revenue);
+  [[nodiscard]] double revenue() const;
 
-      private:
+  void set_revenue (double revenue);
 
-            [[nodiscard]] double avg_price () const;
+private:
 
-            std::string m_book_no;
-            unsigned m_units_sold { 0 };
-            double m_revenue { 0.0 };
+  [[nodiscard]] double avg_price() const;
 
-            // friends
+  std::string m_book_no;
+  unsigned m_units_sold {0};
+  double m_revenue {0.0};
 
-            friend Sales_data add (const Sales_data &lhs, const Sales_data &rhs);
+  // friends
 
-            friend istream &read (istream &is, Sales_data &item);
+  friend Sales_data add (const Sales_data &lhs, const Sales_data &rhs);
 
-            friend ostream &print (ostream &os, const Sales_data &item);
+  friend istream &read (istream &is, Sales_data &item);
 
-      };
-
-
-
+  friend ostream &print (ostream &os, const Sales_data &item);
+};

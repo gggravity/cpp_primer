@@ -14,20 +14,19 @@ try
 
     for (auto &c : expression)
       {
-        s.push(c);
+        s.push (c);
       }
 
+    bool seen {false};
 
-    bool seen { false };
-
-    while (!s.empty())
+    while (! s.empty())
       {
         auto top = s.top();
         cout << top;
-//        if (top == "(")
-//          {
-//            seen = true;
-//          }
+        //        if (top == "(")
+        //          {
+        //            seen = true;
+        //          }
         s.pop();
       }
 
@@ -37,5 +36,3 @@ catch (exception &e)
   {
     cerr << "Error: " << e.what() << endl;
   }
-
-

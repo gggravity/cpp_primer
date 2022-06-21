@@ -1,14 +1,14 @@
-#include <bits/stdc++.h>
 #include "Sales_data.h"
+#include <bits/stdc++.h>
 
 using namespace std;
 
-int main ()
+int main()
 try
   {
-//    string null_isbn("9-999-99999-9"); // string constructed
-//    Sales_data item1(null_isbn); // string constructor is used.
-//    Sales_data item2("9-999-99999-9"); // string constructor is used.
+    //    string null_isbn("9-999-99999-9"); // string constructed
+    //    Sales_data item1(null_isbn); // string constructor is used.
+    //    Sales_data item2("9-999-99999-9"); // string constructor is used.
 
     // Nothing they are explicit.
 
@@ -21,7 +21,7 @@ try
 
     // Sales_data &combine (const Sales_data &rhs); work best.
 
-    i.combine(s);
+    i.combine (s);
 
     return 0;
   }

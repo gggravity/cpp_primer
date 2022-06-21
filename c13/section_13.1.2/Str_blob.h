@@ -9,58 +9,51 @@ class Const_str_blob_ptr;
 using namespace std;
 
 class Str_blob
-      {
-            friend class Str_blob_ptr;
+{
+  friend class Str_blob_ptr;
 
-            friend class Const_str_blob_ptr;
+  friend class Const_str_blob_ptr;
 
-      public:
-            typedef vector<string>::size_type size_type;
+public:
 
-            Str_blob ();
+  typedef vector<string>::size_type size_type;
 
-            Str_blob (initializer_list<string> il);
+  Str_blob();
 
-            Str_blob &operator= (const Str_blob &rhs)
-              {
-                if (this == &rhs)
-                  { //is there any need of self-assignment .
-                    return *this;
-                  }
-                cout << "copy assignment constructor called." << endl;
+  Str_blob (initializer_list<string> il);
 
-                data = rhs.data;
+  Str_blob &operator= (const Str_blob &rhs)
+  {
+    if (this == &rhs)
+      {  // is there any need of self-assignment .
+        return *this;
+      }
+    cout << "copy assignment constructor called." << endl;
 
-                return *this;
-              };
+    data = rhs.data;
 
-            [[nodiscard]] size_type size () const
-              {
-                return data->size();
-              }
+    return *this;
+  };
 
-            [[nodiscard]] bool empty () const
-              {
-                return data->empty();
-              }
+  [[nodiscard]] size_type size() const { return data->size(); }
 
-            void push_back (const string &t)
-              {
-                data->push_back(t);
-              }
+  [[nodiscard]] bool empty() const { return data->empty(); }
 
-            void pop_pack ();
+  void push_back (const string &t) { data->push_back (t); }
 
-            string &front ();
+  void pop_pack();
 
-            string &back ();
+  string &front();
 
-            Str_blob_ptr begin ();
+  string &back();
 
-            Str_blob_ptr end ();
+  Str_blob_ptr begin();
 
-      private:
-            shared_ptr<vector<string>> data;
+  Str_blob_ptr end();
 
-            void check (size_type i, const string &msg) const;
-      };
+private:
+
+  shared_ptr<vector<string>> data;
+
+  void check (size_type i, const string &msg) const;
+};

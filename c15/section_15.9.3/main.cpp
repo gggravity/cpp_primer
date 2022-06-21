@@ -1,8 +1,8 @@
 #include <bits/stdc++.h>
-//#include "TextQuery.h"
-//#include "QueryResult.h"
-#include "BinaryQuery.h"
+// #include "TextQuery.h"
+// #include "QueryResult.h"
 #include "AndQuery.h"
+#include "BinaryQuery.h"
 #include "OrQuery.h"
 #include "Query.h"
 
@@ -40,30 +40,31 @@ void runQueries (ifstream &infile)
 
   }*/
 
-int main ()
+int main()
 try
   {
 
-//    ifstream ifs { "../text.txt" };
-//    runQueries(ifs);
+    //    ifstream ifs { "../text.txt" };
+    //    runQueries(ifs);
 
-    string sought1 { "Alice" };
-    string sought2 { "bird" };
+    string sought1 {"Alice"};
+    string sought2 {"bird"};
 
-    Query and_query = Query(sought1) & Query(sought2);
+    Query and_query = Query (sought1) & Query (sought2);
     cout << and_query << endl;
 
-    Query not_query = ~Query(sought1);
+    Query not_query = ~Query (sought1);
     cout << not_query << endl;
 
-    Query or_query = Query(sought1) | Query(sought2);
+    Query or_query = Query (sought1) | Query (sought2);
     cout << or_query << endl;
 
     cout << "----------------------" << endl;
 
-//    BinaryQuery a = Query("fiery") & Query("bird"); // Not ok, abstract base class
-//    AndQuery b = Query("fiery") & Query("bird");
-//    OrQuery c = Query("fiery") & Query("bird"); // error: conversion from ‘Query’ to non-scalar type ‘OrQuery’ requested
+    //    BinaryQuery a = Query("fiery") & Query("bird"); // Not ok, abstract base class
+    //    AndQuery b = Query("fiery") & Query("bird");
+    //    OrQuery c = Query("fiery") & Query("bird"); // error: conversion from ‘Query’ to non-scalar type ‘OrQuery’
+    //    requested
 
     return 0;
   }
@@ -71,5 +72,3 @@ catch (exception &e)
   {
     cerr << "Error: " << e.what() << endl;
   }
-
-

@@ -1,50 +1,46 @@
-#include <bits/stdc++.h>
 #include "SalesData.hpp"
+#include <bits/stdc++.h>
 
 using namespace std;
 
 class Screen
-   {
-   public:
-      typedef string::size_type pos;
+{
+public:
 
-      [[nodiscard]] char get_cursor () const
-        {
-          return contents[cursor];
-        }
+  typedef string::size_type pos;
 
-      [[nodiscard]] char get () const;
+  [[nodiscard]] char get_cursor() const { return contents[cursor]; }
 
-      [[nodiscard]] char get (pos ht, pos wd) const;
+  [[nodiscard]] char get() const;
 
-      static const string Screen::*data ()
-        {
-          return &Screen::contents;
-        }
+  [[nodiscard]] char get (pos ht, pos wd) const;
 
-   private:
-      string contents { "0001000" };
-      pos cursor;
-      pos height, width;
-   };
+  static const string Screen::*data() { return &Screen::contents; }
 
-int main ()
-  {
-    Screen myScreen;
+private:
 
-    const string Screen::*pdata { Screen::data() };
+  string contents {"0001000"};
+  pos cursor;
+  pos height, width;
+};
 
-    auto s { myScreen.*pdata };
+int main()
+{
+  Screen myScreen;
 
-    cout << s << endl;
+  const string Screen::*pdata {Screen::data()};
 
-    SalesData mySalesData { "123-QQQ", 1, 1 };
+  auto s {myScreen.*pdata};
 
-    const string SalesData::*ptr_isbn { SalesData::data() };
+  cout << s << endl;
 
-    auto isbn { mySalesData.*ptr_isbn };
+  SalesData mySalesData {"123-QQQ", 1, 1};
 
-    cout << isbn << endl;
+  const string SalesData::*ptr_isbn {SalesData::data()};
 
-    return 0;
-  }
+  auto isbn {mySalesData.*ptr_isbn};
+
+  cout << isbn << endl;
+
+  return 0;
+}

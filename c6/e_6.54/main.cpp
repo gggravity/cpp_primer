@@ -5,14 +5,14 @@ using namespace std;
 
 int test (int, int);
 
-int main ()
+int main()
 {
   vector<int (*) (int, int)> vec;
 
   for (int i = 0; i != 10; ++i)
     {
       vec.push_back (test);
-      auto result = vec[i] (i, i);
+      auto result = vec[i](i, i);
       cout << "The result is: " << result << endl;
     }
 

@@ -8,34 +8,23 @@ using namespace std;
 boost::uuids::random_generator uuid_generator;
 
 struct numbered
-    {
-        numbered () :
-            uuid(uuid_generator())
-          {
-            cout << "constructor called" << endl;
-          };
+{
+  numbered() : uuid (uuid_generator()) { cout << "constructor called" << endl; };
 
-        numbered (const numbered &) :
-            uuid(uuid_generator())
-          {
-            cout << "copy constructor called" << endl;
-          };
+  numbered (const numbered &) : uuid (uuid_generator()) { cout << "copy constructor called" << endl; };
 
-        boost::uuids::uuid uuid;
-    };
+  boost::uuids::uuid uuid;
+};
 
-void f (const numbered& s)
-  {
-    cout << s.uuid << endl;
-  }
+void f (const numbered &s) { cout << s.uuid << endl; }
 
-int main ()
+int main()
 try
   {
     numbered a, b = a, c = b;
-    f(a);
-    f(b);
-    f(c);
+    f (a);
+    f (b);
+    f (c);
 
     return 0;
   }

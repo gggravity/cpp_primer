@@ -2,27 +2,27 @@
 
 using namespace std;
 
-int main ()
+int main()
 try
   {
-    fstream inOut { "../copyOut", fstream::ate | fstream::in | fstream::out };
+    fstream inOut {"../copyOut", fstream::ate | fstream::in | fstream::out};
 
-    if (!inOut)
+    if (! inOut)
       {
         cerr << "Unable to open file!" << endl;
         return EXIT_FAILURE;
       }
 
-    auto end_mark = inOut.tellg() ;
-    inOut.seekg(0, fstream::beg);
+    auto end_mark = inOut.tellg();
+    inOut.seekg (0, fstream::beg);
     size_t cnt = 0;
     string line;
 
-    while (inOut && inOut.tellg() != end_mark && getline(inOut, line))
+    while (inOut && inOut.tellg() != end_mark && getline (inOut, line))
       {
         cnt += line.size() + 1;
         auto mark = inOut.tellg();
-        inOut.seekp(0, fstream::end);
+        inOut.seekp (0, fstream::end);
         inOut << cnt;
 
         if (mark != end_mark)
@@ -30,9 +30,9 @@ try
             inOut << " ";
           }
 
-        inOut.seekg(mark);
+        inOut.seekg (mark);
       }
-    inOut.seekp(0, fstream::end);
+    inOut.seekp (0, fstream::end);
     inOut << "\n";
 
     return 0;
@@ -41,5 +41,3 @@ catch (exception &e)
   {
     cerr << "Error: " << e.what() << endl;
   }
-
-

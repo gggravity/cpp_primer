@@ -5,15 +5,7 @@
 using namespace std;
 
 struct Person
-      {
+{
+};
 
-      };
-
-
-
-int main ()
-  {
-
-
-    return 0;
-  }
+int main() { return 0; }

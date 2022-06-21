@@ -1,34 +1,21 @@
-#include <bits/stdc++.h>
-#include <ostream>
 #include "Str_blob.h"
 #include "Str_blob_ptr.h"
+#include <bits/stdc++.h>
+#include <ostream>
 
 using namespace std;
 
 struct Point
-    {
-        int x { 0 };
-        int y { 0 };
+{
+  int x {0};
+  int y {0};
 
-        Point () :
-            x(0),
-            y(0)
-          {
-            cout << "Point constructed" << endl;
-          };
+  Point() : x (0), y (0) { cout << "Point constructed" << endl; };
 
-        Point (int x, int y) :
-            x(x),
-            y(y)
-          {
-            cout << "Point constructed" << endl;
-          };
+  Point (int x, int y) : x (x), y (y) { cout << "Point constructed" << endl; };
 
-        Point (const Point &)
-          {
-            cout << "Point copied" << endl;
-          };
-    };
+  Point (const Point &) { cout << "Point copied" << endl; };
+};
 
 /*Point global;
 
@@ -43,34 +30,29 @@ Point foo_bar (const Point &arg) // no copying, copy without &
   }*/
 
 class HasPtr
-      {
-      public:
-            HasPtr (const string &s = string()) :
-                ps(new string(s)),
-                i(0)
-              {
+{
+public:
 
-              };
+  HasPtr (const string &s = string())
+      : ps (new string (s)), i (0) {
 
-            friend ostream &operator<< (ostream &os, const HasPtr &ptr)
-              {
-                os << "ps: " << *ptr.ps << " i: " << ptr.i;
-                return os;
-              }
+                             };
 
-            HasPtr (const HasPtr &rhs) :
-                ps(new string { *rhs.ps }),
-                i(rhs.i)
-              {
-                cout << "copy constructor called." << endl;
-              }
+  friend ostream &operator<< (ostream &os, const HasPtr &ptr)
+  {
+    os << "ps: " << *ptr.ps << " i: " << ptr.i;
+    return os;
+  }
 
-      private:
-            string *ps { };
-            int i { };
-      };
+  HasPtr (const HasPtr &rhs) : ps (new string {*rhs.ps}), i (rhs.i) { cout << "copy constructor called." << endl; }
 
-int main ()
+private:
+
+  string *ps {};
+  int i {};
+};
+
+int main()
 try
   {
 
@@ -103,8 +85,8 @@ try
 */
     // e 13.5
 
-    string s { "some string....." };
-    auto hp = HasPtr { s };
+    string s {"some string....."};
+    auto hp = HasPtr {s};
 
     cout << hp << endl;
 

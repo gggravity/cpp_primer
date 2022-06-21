@@ -4,18 +4,20 @@
 
 #pragma once
 
-#include <bits/stdc++.h>
 #include "Screen.h"
+#include <bits/stdc++.h>
 
 using namespace std;
 
 class Window_manager
-      {
-      public:
-            using screen_index = vector<Screen>::size_type;
+{
+public:
 
-            void clear (screen_index index);
+  using screen_index = vector<Screen>::size_type;
 
-      private:
-            vector<Screen> screens { Screen { 24, 80, ' ' } };
-      };
+  void clear (screen_index index);
+
+private:
+
+  vector<Screen> screens {Screen {24, 80, ' '}};
+};

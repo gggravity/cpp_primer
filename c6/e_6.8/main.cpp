@@ -1,11 +1,11 @@
-#include <iostream>
 #include "Chapter6.h"
+#include <iostream>
 
 using namespace std;
 
-int main ()
+int main()
 {
-  cout << factorial(5);
+  cout << factorial (5);
 
   return 0;
 }

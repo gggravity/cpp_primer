@@ -5,37 +5,40 @@
 using namespace std;
 
 class quote
-   {
-   public:
-      quote () = default;
+{
+public:
 
-      quote (string book_number, double price);
+  quote() = default;
 
-      quote (const quote &other); // copy constructor
+  quote (string book_number, double price);
 
-      quote &operator= (const quote &other); // copy assignment operator
+  quote (const quote &other);  // copy constructor
 
-      quote (quote &&other) noexcept; // move constructor
+  quote &operator= (const quote &other);  // copy assignment operator
 
-      quote &operator= (quote &&other) noexcept; // move assignment operator
+  quote (quote &&other) noexcept;  // move constructor
 
-      virtual ~quote ();
+  quote &operator= (quote &&other) noexcept;  // move assignment operator
 
-      [[nodiscard]] string isbn () const;
+  virtual ~quote();
 
-      virtual void debug ();
+  [[nodiscard]] string isbn() const;
 
-      [[nodiscard]] virtual double net_price (size_t count) const;
+  virtual void debug();
 
-      [[nodiscard]] virtual quote* clone() const &;
+  [[nodiscard]] virtual double net_price (size_t count) const;
 
-      virtual quote* clone() &&;
+  [[nodiscard]] virtual quote *clone() const &;
 
+  virtual quote *clone() &&;
 
-   protected:
-      double price { 0.0 };
-   private:
-      string book_number;
-   };
+protected:
+
+  double price {0.0};
+
+private:
+
+  string book_number;
+};
 
 double print_total (ostream &os, const quote &item, size_t n);

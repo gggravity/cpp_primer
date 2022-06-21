@@ -1,26 +1,28 @@
-#include <iostream>
 #include "Sales_item.h"
+#include <iostream>
 
 int main()
 {
-    Sales_item item, curItem;
-    //    0-201-78345-X 3 20 0-201-78000-X 3 20 0-201-78000-X 3 20
+  Sales_item item, curItem;
+  //    0-201-78345-X 3 20 0-201-78000-X 3 20 0-201-78000-X 3 20
 
-    if (std::cin >> curItem)
+  if (std::cin >> curItem)
     {
-        int cnt = 1;
-        while (std::cin >> item)
+      int cnt = 1;
+      while (std::cin >> item)
         {
-            if (item.isbn() == curItem.isbn())
-                ++cnt;
-            else
+          if (item.isbn() == curItem.isbn())
             {
-                std::cout << curItem.isbn() << " " << cnt << std::endl;
-                curItem = item;
-                cnt = 1;
+              ++cnt;
+            }
+          else
+            {
+              std::cout << curItem.isbn() << " " << cnt << std::endl;
+              curItem = item;
+              cnt = 1;
             }
         }
-        std::cout << curItem.isbn() << " " << cnt << std::endl;
+      std::cout << curItem.isbn() << " " << cnt << std::endl;
     }
-    return 0;
+  return 0;
 }

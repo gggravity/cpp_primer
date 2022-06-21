@@ -3,22 +3,26 @@
 
 int main()
 {
-    std::vector<int> vector = {5, 9, 6, 7, 8, 5, 6, 7, 9, 8};
+  std::vector<int> vector = {5, 9, 6, 7, 8, 5, 6, 7, 9, 8};
 
-    for (auto v : vector)
+  for (auto v : vector)
     {
-        std::cout << v << "  ";
+      std::cout << v << "  ";
     }
 
-    std::cout << std::endl;
+  std::cout << std::endl;
 
-    for (auto it = vector.begin(); it != vector.end(); ++it)
+  for (auto it = vector.begin(); it != vector.end(); ++it)
     {
-        if (it == vector.end() - 1)
-            std::cout << *it ;
-        else
-            std::cout << *it + *(it+1) << " ";
+      if (it == vector.end() - 1)
+        {
+          std::cout << *it;
+        }
+      else
+        {
+          std::cout << *it + *(it + 1) << " ";
+        }
     }
 
-    return 0;
+  return 0;
 }

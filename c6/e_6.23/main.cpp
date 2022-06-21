@@ -5,7 +5,9 @@ using namespace std;
 void print (const int *beg, const int *end)
 {
   while (beg != end)
-    cout << *beg++ << " ";
+    {
+      cout << *beg++ << " ";
+    }
 }
 
 void print (const int ia[], size_t size)
@@ -16,7 +18,7 @@ void print (const int ia[], size_t size)
     }
 }
 
-int main ()
+int main()
 {
   int i = 0, j[2] = {0, 1};
 
@@ -27,7 +29,6 @@ int main ()
   cout << "version 2: ";
   print (j, size (j));
   cout << endl;
-
 
   return 0;
 }

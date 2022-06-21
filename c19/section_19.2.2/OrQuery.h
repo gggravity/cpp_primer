@@ -7,18 +7,18 @@ class TextQuery;
 
 class QueryResult;
 
-#include <bits/stdc++.h>
 #include "BinaryQuery.h"
+#include <bits/stdc++.h>
 
 using namespace std;
 
 class OrQuery : public BinaryQuery
-   {
-   public:
-      friend Query operator| (const Query &lhs, const Query &rhs);
+{
+public:
 
-      OrQuery (const Query &lhs, const Query &rhs);
+  friend Query operator| (const Query &lhs, const Query &rhs);
 
-      [[nodiscard]] QueryResult eval (const TextQuery &text_query) const;
-   };
+  OrQuery (const Query &lhs, const Query &rhs);
 
+  [[nodiscard]] QueryResult eval (const TextQuery &text_query) const;
+};

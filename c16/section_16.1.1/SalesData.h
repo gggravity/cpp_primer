@@ -10,69 +10,67 @@ using namespace std;
 // 0-201-78655 5 98.50
 
 class SalesData
-   {
-   public:
-      // constructors
+{
+public:
 
-      SalesData ();
+  // constructors
 
-      SalesData (string book_number);
+  SalesData();
 
-      SalesData (string book_number, unsigned units_sold, double price);
+  SalesData (string book_number);
 
-      SalesData (const char *ISBN);
+  SalesData (string book_number, unsigned units_sold, double price);
 
-      explicit SalesData (istream &is);
+  SalesData (const char *ISBN);
 
-      // conversion operators
+  explicit SalesData (istream &is);
 
-      explicit operator string() const;
+  // conversion operators
 
-      // methods
+  explicit operator string() const;
 
-      SalesData &combine (const SalesData &rhs);
+  // methods
 
-      // getters and setters
+  SalesData &combine (const SalesData &rhs);
 
-      [[nodiscard]] const string &isbn () const;
+  // getters and setters
 
-      void set_isbn (const string &book_no);
+  [[nodiscard]] const string &isbn() const;
 
-      [[nodiscard]] unsigned int units_sold () const;
+  void set_isbn (const string &book_no);
 
-      void set_units_sold (unsigned int units_sold);
+  [[nodiscard]] unsigned int units_sold() const;
 
-      [[nodiscard]] double revenue () const;
+  void set_units_sold (unsigned int units_sold);
 
-      void set_revenue (double revenue);
+  [[nodiscard]] double revenue() const;
 
-      SalesData &operator+= (const SalesData &other);
+  void set_revenue (double revenue);
 
-      SalesData &operator+ (const string &ISBN);
+  SalesData &operator+= (const SalesData &other);
 
-      friend bool operator== (const SalesData &lhs, const SalesData &rhs);
+  SalesData &operator+ (const string &ISBN);
 
-      friend bool operator!= (const SalesData &lhs, const SalesData &rhs);
+  friend bool operator== (const SalesData &lhs, const SalesData &rhs);
 
+  friend bool operator!= (const SalesData &lhs, const SalesData &rhs);
 
+private:
 
-   private:
+  [[nodiscard]] double avg_price() const;
 
-      [[nodiscard]] double avg_price () const;
+  std::string m_book_no;
+  unsigned m_units_sold {0};
+  double m_revenue {0.0};
 
-      std::string m_book_no;
-      unsigned m_units_sold { 0 };
-      double m_revenue { 0.0 };
+  // friends
 
-      // friends
+  friend SalesData add (const SalesData &lhs, const SalesData &rhs);
 
-      friend SalesData add (const SalesData &lhs, const SalesData &rhs);
+  friend istream &read (istream &is, SalesData &item);
 
-      friend istream &read (istream &is, SalesData &item);
-
-      friend ostream &print (ostream &os, const SalesData &item);
-
-   };
+  friend ostream &print (ostream &os, const SalesData &item);
+};
 
 bool operator== (const SalesData &lhs, const SalesData &rhs);
 

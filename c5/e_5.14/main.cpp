@@ -2,16 +2,18 @@
 
 using namespace std;
 
-int main ()
+int main()
 {
   //    how now now now brown brown brown brown brown brown cow cow .
   string last_word, word, max_word;
-  int counter{0}, max_count{0};
+  int counter {0}, max_count {0};
 
   while (cin >> word && word != ".")
     {
       if (word == ".")
-        continue;
+        {
+          continue;
+        }
       if (last_word != word)
         {
           last_word = word;

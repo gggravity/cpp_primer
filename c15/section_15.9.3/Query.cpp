@@ -3,35 +3,21 @@
 //
 
 #include "Query.h"
-#include "WordQuery.h"
-#include "TextQuery.h"
-#include "QueryResult.h"
 #include "QueryBase.h"
+#include "QueryResult.h"
+#include "TextQuery.h"
+#include "WordQuery.h"
 
-Query::Query (const string &q) :
-    q(new WordQuery(q))
-  {
+Query::Query (const string &q) : q (new WordQuery (q)) {}
 
-  }
+QueryResult Query::eval (const TextQuery &text_query) const { return q->eval (text_query); }
 
-QueryResult Query::eval (const TextQuery &text_query) const
-  {
-    return q->eval(text_query);
-  }
+string Query::rep() const { return q->rep(); }
 
-string Query::rep () const
-  {
-    return q->rep();
-  }
-
-Query::Query (shared_ptr<QueryBase> query) :
-    q(std::move(query))
-  {
-
-  }
+Query::Query (shared_ptr<QueryBase> query) : q (std::move (query)) {}
 
 ostream &operator<< (ostream &os, const Query &query)
-  {
-    os << query.rep();
-    return os;
-  }
+{
+  os << query.rep();
+  return os;
+}

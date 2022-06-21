@@ -2,11 +2,13 @@
 
 using namespace std;
 
-class Screen {
- public:
+class Screen
+{
+public:
+
   using position = string::size_type;
 
-  Screen () = default;
+  Screen() = default;
 
   Screen (position height, position width, char character)
   {
@@ -19,22 +21,21 @@ class Screen {
   {
     this->height = height;
     this->width = width;
-    this->contents = string(number_of_blanks, ' ')
+    this->contents = string (number_of_blanks, ' ')
   }
 
-  char get () const
-  { return contents[curser]; }
+  char get() const { return contents[curser]; }
 
-  inline char get(position height, position width) const;
+  inline char get (position height, position width) const;
 
-  Screen &move(position row, position character);
+  Screen &move (position row, position character);
 
- private:
-  position height{0};
-  position width{0};
-  position curser{0};
+private:
+
+  position height {0};
+  position width {0};
+  position curser {0};
   string contents;
-
 };
 char Screen::get (Screen::position height, Screen::position width) const
 {
@@ -48,11 +49,11 @@ Screen &Screen::move (Screen::position row, Screen::position character)
   return *this;
 }
 
-int main ()
+int main()
 {
   Screen screen;
   char ch = screen.get();
-  ch = screen.get(0,0);
+  ch = screen.get (0, 0);
 
   return 0;
 }

@@ -9,75 +9,66 @@ class Const_str_blob_ptr;
 using namespace std;
 
 class Str_blob
-   {
-      friend class Str_blob_ptr;
+{
+  friend class Str_blob_ptr;
 
-      friend class Const_str_blob_ptr;
+  friend class Const_str_blob_ptr;
 
-   public:
-      typedef vector<string>::size_type size_type;
+public:
 
-      Str_blob ();
+  typedef vector<string>::size_type size_type;
 
-      Str_blob (initializer_list<string> il);
+  Str_blob();
 
-      Str_blob (const Str_blob &rhs) : // copy constructor
-          data(make_shared < vector < string >> ( *rhs.data ))
-        {
-          cout << "copy constructor called." << endl;
-        };
+  Str_blob (initializer_list<string> il);
 
-      Str_blob &operator= (const Str_blob &rhs) // copy assignment operator
-        {
-          cout << "copy assignment operator called." << endl;
-          if (this == &rhs)
-            {
-              return *this;
-            }
-          data = make_shared < vector < string >> ( *rhs.data );
-          return *this;
-        };
+  Str_blob (const Str_blob &rhs)
+      :  // copy constructor
+        data (make_shared<vector<string>> (*rhs.data))
+  {
+    cout << "copy constructor called." << endl;
+  };
 
-      virtual ~Str_blob ();
+  Str_blob &operator= (const Str_blob &rhs)  // copy assignment operator
+  {
+    cout << "copy assignment operator called." << endl;
+    if (this == &rhs)
+      {
+        return *this;
+      }
+    data = make_shared<vector<string>> (*rhs.data);
+    return *this;
+  };
 
-      [[nodiscard]] size_type size () const
-        {
-          return data->size();
-        }
+  virtual ~Str_blob();
 
-      [[nodiscard]] bool empty () const
-        {
-          return data->empty();
-        }
+  [[nodiscard]] size_type size() const { return data->size(); }
 
-      void push_back (const string &t)
-        {
-          data->push_back(t);
-        }
+  [[nodiscard]] bool empty() const { return data->empty(); }
 
-      void push_back (string &&t)
-        {
-          data->push_back(std::move(t));
-        }
+  void push_back (const string &t) { data->push_back (t); }
 
-      void pop_pack ();
+  void push_back (string &&t) { data->push_back (std::move (t)); }
 
-      string &front ();
+  void pop_pack();
 
-      string &back ();
+  string &front();
 
-      Str_blob_ptr begin ();
+  string &back();
 
-      Str_blob_ptr end ();
+  Str_blob_ptr begin();
 
-      friend ostream &operator<< (ostream &os, const Str_blob &blob);
+  Str_blob_ptr end();
 
-      friend bool operator== (const Str_blob &lhs, const Str_blob &rhs);
+  friend ostream &operator<< (ostream &os, const Str_blob &blob);
 
-      friend bool operator!= (const Str_blob &lhs, const Str_blob &rhs);
+  friend bool operator== (const Str_blob &lhs, const Str_blob &rhs);
 
-   private:
-      shared_ptr<vector<string>> data;
+  friend bool operator!= (const Str_blob &lhs, const Str_blob &rhs);
 
-      void check (size_type i, const string &msg) const;
-   };
+private:
+
+  shared_ptr<vector<string>> data;
+
+  void check (size_type i, const string &msg) const;
+};

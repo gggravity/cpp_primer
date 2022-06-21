@@ -7,21 +7,18 @@
 using namespace std;
 
 class DebugDelete
-   {
-   public:
-      explicit DebugDelete (ostream &os = cerr) :
-          os(os)
-        {
+{
+public:
 
-        }
+  explicit DebugDelete (ostream &os = cerr) : os (os) {}
 
-      template < typename T >
-      void operator() (T *p) const
-        {
-          os << "deleting pointer at: " << p << endl;
-          delete p;
-        }
+  template <typename T> void operator() (T *p) const
+  {
+    os << "deleting pointer at: " << p << endl;
+    delete p;
+  }
 
-   private:
-      ostream &os;
-   };
+private:
+
+  ostream &os;
+};

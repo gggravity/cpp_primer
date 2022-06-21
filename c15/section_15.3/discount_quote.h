@@ -1,19 +1,19 @@
 #pragma once
 
-#include <bits/stdc++.h>
 #include "quote.h"
+#include <bits/stdc++.h>
 
 using namespace std;
 
 class discount_quote : public quote
-   {
-   public:
+{
+public:
 
-      discount_quote () = default;
+  discount_quote() = default;
 
-      discount_quote (const string &name, double price);
+  discount_quote (const string &name, double price);
 
-      [[nodiscard]] double net_price (size_t count) const override;
+  [[nodiscard]] double net_price (size_t count) const override;
 
-      void debug () override;
-   };
+  void debug() override;
+};

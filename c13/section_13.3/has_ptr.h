@@ -9,28 +9,30 @@
 using namespace std;
 
 class has_ptr
-   {
-   public:
-      explicit has_ptr (const string &s = string());
+{
+public:
 
-      has_ptr (const has_ptr &rhs);
+  explicit has_ptr (const string &s = string());
 
-      has_ptr &operator= (has_ptr rhs);
+  has_ptr (const has_ptr &rhs);
 
-      bool operator< (const has_ptr& rhs);
+  has_ptr &operator= (has_ptr rhs);
 
-      bool operator<= (const has_ptr& rhs);
+  bool operator<(const has_ptr &rhs);
 
-      virtual ~has_ptr ();
+  bool operator<= (const has_ptr &rhs);
 
-      friend ostream &operator<< (ostream &os, const has_ptr &ptr);
+  virtual ~has_ptr();
 
-      inline void swap(has_ptr &lhs, has_ptr &rhs);
+  friend ostream &operator<< (ostream &os, const has_ptr &ptr);
 
-      void set_ps (string *ps);
+  inline void swap (has_ptr &lhs, has_ptr &rhs);
 
-   private:
-      string *ps;
-      int i;
-      size_t *use;
-   };
+  void set_ps (string *ps);
+
+private:
+
+  string *ps;
+  int i;
+  size_t *use;
+};

@@ -3,27 +3,28 @@
 
 int main()
 {
-    std::vector<std::string> vector;
-    std::string string;
+  std::vector<std::string> vector;
+  std::string string;
 
-    while (std::getline(std::cin, string))
+  while (std::getline (std::cin, string))
     {
-        if (string == ".")
-            break;
-        vector.push_back(string);
-    }
-    for (auto it = vector.begin(); it != vector.end(); ++it)
-    {
-        for (char &c : *it)
+      if (string == ".")
         {
-            c = toupper(c);
+          break;
+        }
+      vector.push_back (string);
+    }
+  for (auto it = vector.begin(); it != vector.end(); ++it)
+    {
+      for (char &c : *it)
+        {
+          c = toupper (c);
         }
     }
-    for (const auto& element : vector)
+  for (const auto &element : vector)
     {
-        std::cout << element << " ";
+      std::cout << element << " ";
     }
 
-
-    return 0;
+  return 0;
 }

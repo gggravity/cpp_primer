@@ -3,60 +3,52 @@
 using namespace std;
 
 class Account
-      {
-      public:
-            Account (string o, double a)
-                : owner(o),
-                  amount(a)
-              {
+{
+public:
 
-              };
+  Account (string o, double a)
+      : owner (o), amount (a) {
 
-            void calculate ()
-              { amount += amount * interestRate; }
+                   };
 
-            static double rate ()
-              { return interestRate; }
+  void calculate() { amount += amount * interestRate; }
 
-            static void rate (double);
+  static double rate() { return interestRate; }
 
-      private:
-            string owner;
-            double amount { 0 };
-            static constexpr int period { 30 };
-            double daily_tbl[period];
+  static void rate (double);
 
-            static double interestRate;
+private:
 
-            static double initRate ();
-      };
+  string owner;
+  double amount {0};
+  static constexpr int period {30};
+  double daily_tbl[period];
 
-double Account::initRate ()
-  {
-    return 0.1;
-  }
+  static double interestRate;
 
-void Account::rate (double rate)
-  {
-    interestRate = rate;
-  }
+  static double initRate();
+};
+
+double Account::initRate() { return 0.1; }
+
+void Account::rate (double rate) { interestRate = rate; }
 
 double Account::interestRate = initRate();
 
 class Example
-      {
-            static double rate { 6.5 };
-            static const int vecSize { 20 };
-//            static vector<double> vec(vecSize);
-      };
+{
+  static double rate {6.5};
+  static const int vecSize {20};
+  //            static vector<double> vec(vecSize);
+};
 
-int main ()
+int main()
 try
   {
 
-//    double Example::rate;
-//    vector<double> Example::vec;
-    Account act("Name", 123.45);
+    //    double Example::rate;
+    //    vector<double> Example::vec;
+    Account act ("Name", 123.45);
 
     return 0;
   }

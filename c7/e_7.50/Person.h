@@ -7,36 +7,35 @@
 using namespace std;
 
 class Person
-      {
-      public:
-            // constructors
+{
+public:
 
-            Person () = default;
+  // constructors
 
-            Person (string n, string a);
+  Person() = default;
 
-            // getters
+  Person (string n, string a);
 
-            [[nodiscard]] string name () const;
+  // getters
 
-            [[nodiscard]] string address () const;
+  [[nodiscard]] string name() const;
 
-            // setters
+  [[nodiscard]] string address() const;
 
-            void set_name (const string &m_name);
+  // setters
 
-            void set_address (const string &m_address);
+  void set_name (const string &m_name);
 
-            // IO methods
+  void set_address (const string &m_address);
 
-            static istream &read (istream &is, Person &person);
+  // IO methods
 
-            static ostream &print (ostream &os, const Person &person);
+  static istream &read (istream &is, Person &person);
 
-      private:
-            string m_name;
-            string m_address;
+  static ostream &print (ostream &os, const Person &person);
 
+private:
 
-      };
-
+  string m_name;
+  string m_address;
+};

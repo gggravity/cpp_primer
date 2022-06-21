@@ -3,22 +3,23 @@
 
 int main()
 {
-    std::string string;
-    std::vector<std::string> vector;
+  std::string string;
+  std::vector<std::string> vector;
 
-    while (std::getline(std::cin, string))
+  while (std::getline (std::cin, string))
     {
-        if (string.empty())
-            break;
-        vector.push_back(string);
+      if (string.empty())
+        {
+          break;
+        }
+      vector.push_back (string);
     }
-    std::cout << "The letters in the vector are: " << std::endl;
+  std::cout << "The letters in the vector are: " << std::endl;
 
-    for (std::string &s : vector)
+  for (std::string &s : vector)
     {
-        std::cout << s << " ";
+      std::cout << s << " ";
     }
 
-
-    return 0;
+  return 0;
 }

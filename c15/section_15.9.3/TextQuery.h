@@ -10,17 +10,18 @@ using namespace std;
 class QueryResult;
 
 class TextQuery
-      {
-      public:
-            using line_no = vector<string>::size_type;
+{
+public:
 
-            TextQuery (ifstream &ifs);
+  using line_no = vector<string>::size_type;
 
-            QueryResult query (const string &query) const;
+  TextQuery (ifstream &ifs);
 
-      private:
-            shared_ptr<vector<string>> file;
+  QueryResult query (const string &query) const;
 
-            map<string, shared_ptr<set<line_no>>> wm;
+private:
 
-      };
+  shared_ptr<vector<string>> file;
+
+  map<string, shared_ptr<set<line_no>>> wm;
+};

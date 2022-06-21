@@ -5,22 +5,26 @@
 using namespace std;
 
 class quote
-   {
-   public:
-      quote () = default;
+{
+public:
 
-      quote (string book_number, double price);
+  quote() = default;
 
-      [[nodiscard]] string isbn () const;
+  quote (string book_number, double price);
 
-      [[nodiscard]] virtual double net_price (size_t n) const;
+  [[nodiscard]] string isbn() const;
 
-      virtual ~quote () = default;
+  [[nodiscard]] virtual double net_price (size_t n) const;
 
-   protected:
-      double price { 0.0 };
-   private:
-      string book_number;
-   };
+  virtual ~quote() = default;
 
-double print_total(ostream &os, const quote &item, size_t n);
+protected:
+
+  double price {0.0};
+
+private:
+
+  string book_number;
+};
+
+double print_total (ostream &os, const quote &item, size_t n);

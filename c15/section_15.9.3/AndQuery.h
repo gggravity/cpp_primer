@@ -7,20 +7,16 @@ class TextQuery;
 
 class QueryResult;
 
-#include <bits/stdc++.h>
 #include "BinaryQuery.h"
+#include <bits/stdc++.h>
 
 using namespace std;
 
 class AndQuery : public BinaryQuery
-   {
-      friend Query operator& (const Query &lhs, const Query &rhs);
+{
+  friend Query operator& (const Query &lhs, const Query &rhs);
 
-      AndQuery (const Query &lhs, const Query &rhs);
+  AndQuery (const Query &lhs, const Query &rhs);
 
-      [[nodiscard]] QueryResult eval (const TextQuery &text_query) const override;
-   };
-
-
-
-
+  [[nodiscard]] QueryResult eval (const TextQuery &text_query) const override;
+};

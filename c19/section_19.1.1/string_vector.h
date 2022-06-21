@@ -7,43 +7,44 @@
 using namespace std;
 
 class string_vector
-   {
-   public:
-      string_vector ();
+{
+public:
 
-      string_vector (initializer_list<string> initializer_list);
+  string_vector();
 
-      string_vector (const string_vector &other);
+  string_vector (initializer_list<string> initializer_list);
 
-      string_vector &operator= (const string_vector &other);
+  string_vector (const string_vector &other);
 
-      ~string_vector ();
+  string_vector &operator= (const string_vector &other);
 
-      void push_back (const string &string);
+  ~string_vector();
 
-      inline size_t size () const;
+  void push_back (const string &string);
 
-      size_t capacity () const;
+  inline size_t size() const;
 
-      void reserve (size_t n);
+  size_t capacity() const;
 
-      [[nodiscard]] string *begin () const;
+  void reserve (size_t n);
 
-      [[nodiscard]] string *end () const;
+  [[nodiscard]] string *begin() const;
 
-   private:
-      static allocator<string> alloc;
+  [[nodiscard]] string *end() const;
 
-      string *elements;    // pointer to the first element in the array
-      string *first_free;  // pointer tro the first free element in the array
-      string *cap;         // pointer to one past the end of the array
+private:
 
-      void check_and_allocate ();
+  static allocator<string> alloc;
 
-      pair<string *, string *> allocate_and_copy (const string *begin, const string *end);
+  string *elements;    // pointer to the first element in the array
+  string *first_free;  // pointer tro the first free element in the array
+  string *cap;         // pointer to one past the end of the array
 
-      void free ();
+  void check_and_allocate();
 
-      void reallocate (size_t new_capacity = 0);
+  pair<string *, string *> allocate_and_copy (const string *begin, const string *end);
 
-   };
+  void free();
+
+  void reallocate (size_t new_capacity = 0);
+};

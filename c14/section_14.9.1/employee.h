@@ -8,32 +8,31 @@
 using namespace std;
 
 struct employee
-    {
-        employee ();
+{
+  employee();
 
-        employee (string name, string adresse, string country, string phone, unsigned int id);
+  employee (string name, string adresse, string country, string phone, unsigned int id);
 
-        employee (const employee &employee) = default;
+  employee (const employee &employee) = default;
 
-        string name;
-        string adresse;
-        string country;
-        string phone;
-        unsigned int id;
+  string name;
+  string adresse;
+  string country;
+  string phone;
+  unsigned int id;
 
-        // operators
+  // operators
 
-        explicit operator bool() const;
+  explicit operator bool() const;
 
-        employee &operator= (employee &&other) noexcept;
+  employee &operator= (employee &&other) noexcept;
 
-        employee (employee &&other) noexcept;
+  employee (employee &&other) noexcept;
 
-        bool operator== (const employee &rhs) const;
+  bool operator== (const employee &rhs) const;
 
-        bool operator!= (const employee &rhs) const;
-
-    };
+  bool operator!= (const employee &rhs) const;
+};
 
 istream &operator>> (istream &is, employee &employee);
 

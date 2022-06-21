@@ -11,24 +11,26 @@ class QueryBase;
 using namespace std;
 
 class Query
-   {
-      friend Query operator~ (const Query &query);
+{
+  friend Query operator~(const Query &query);
 
-      friend Query operator| (const Query &lhs, const Query &rhs);
+  friend Query operator| (const Query &lhs, const Query &rhs);
 
-      friend Query operator& (const Query &lhs, const Query &rhs);
+  friend Query operator& (const Query &lhs, const Query &rhs);
 
-   public:
-      Query (const string &q);
+public:
 
-      [[nodiscard]] QueryResult eval (const TextQuery &text_query) const;
+  Query (const string &q);
 
-      [[nodiscard]] string rep () const;
+  [[nodiscard]] QueryResult eval (const TextQuery &text_query) const;
 
-      friend ostream &operator<< (ostream &os, const Query &query);
+  [[nodiscard]] string rep() const;
 
-   private:
-      Query (shared_ptr<QueryBase> query);
+  friend ostream &operator<< (ostream &os, const Query &query);
 
-      shared_ptr<QueryBase> q;
-   };
+private:
+
+  Query (shared_ptr<QueryBase> query);
+
+  shared_ptr<QueryBase> q;
+};

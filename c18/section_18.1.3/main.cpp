@@ -1,17 +1,15 @@
-#include <bits/stdc++.h>
 #include "Blob.h"
 #include "BlobPtr.h"
+#include <bits/stdc++.h>
 
 using namespace std;
 
-int main ()
+int main()
 try
   {
     Blob<string> blob {"A", "B", "C"};
 
-//    BlobPtr<string> blob_ptr {blob};
-
-
+    //    BlobPtr<string> blob_ptr {blob};
 
     return 0;
   }
@@ -75,4 +73,3 @@ catch (exception &e)
     cerr << "exception: " << e.what() << endl;
     abort();
   }
-

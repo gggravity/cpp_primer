@@ -2,33 +2,33 @@
 #include <vector>
 int main()
 {
-    std::vector<int> v1 = {42, 42, 42, 42, 42, 42, 42, 42, 42, 42};
+  std::vector<int> v1 = {42, 42, 42, 42, 42, 42, 42, 42, 42, 42};
 
-    for (auto v : v1)
+  for (auto v : v1)
     {
-        std::cout << v << " ";
+      std::cout << v << " ";
     }
-    std::cout << std::endl << "----------" << std::endl;
+  std::cout << std::endl << "----------" << std::endl;
 
-    std::vector<int> v2(10, 42);
+  std::vector<int> v2 (10, 42);
 
-    for (auto v : v2)
+  for (auto v : v2)
     {
-        std::cout << v << " ";
+      std::cout << v << " ";
     }
-    std::cout << std::endl << "----------" << std::endl;
+  std::cout << std::endl << "----------" << std::endl;
 
-    std::vector<int> v3;
+  std::vector<int> v3;
 
-    for (int i = 0; i < 10; ++i)
+  for (int i = 0; i < 10; ++i)
     {
-        v3.push_back(42);
-    }
-
-    for (auto v : v3)
-    {
-        std::cout << v << " ";
+      v3.push_back (42);
     }
 
-    return 0;
+  for (auto v : v3)
+    {
+      std::cout << v << " ";
+    }
+
+  return 0;
 }

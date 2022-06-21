@@ -5,103 +5,95 @@
 #include "message.h"
 #include "folder.h"
 
-message::message (const string &str) :
-    contents(str)
-  {
-
-  }
+message::message (const string &str) : contents (str) {}
 
 // copy constructor
-message::message (const message &message) :
-    contents(message.contents),
-    folders(message.folders)
-  {
-    add_to_folders(message);
-  }
+message::message (const message &message) : contents (message.contents), folders (message.folders)
+{
+  add_to_folders (message);
+}
 
 // copy assignment
 message &message::operator= (const message &rhs)
-  {
-    remove_from_folders();
-    contents = rhs.contents;
-    folders = rhs.folders;
-    add_to_folders(rhs);
-    return *this;
-  }
+{
+  remove_from_folders();
+  contents = rhs.contents;
+  folders = rhs.folders;
+  add_to_folders (rhs);
+  return *this;
+}
 
-message::~message ()
-  {
-    remove_from_folders();
-  }
+message::~message() { remove_from_folders(); }
 
 void message::save (folder &folder)
-  {
-    folders.insert(&folder);
-    folder.add_message(this);
-  }
+{
+  folders.insert (&folder);
+  folder.add_message (this);
+}
 
 void message::remove (folder &folder)
-  {
-    folders.erase(&folder);
-    folder.remove_message(this);
-  }
+{
+  folders.erase (&folder);
+  folder.remove_message (this);
+}
 
 void message::add_to_folders (const message &message)
-  {
-    for (auto folder : message.folders)
-      {
-        folder->add_message(this);
-      }
-  }
+{
+  for (auto folder : message.folders)
+    {
+      folder->add_message (this);
+    }
+}
 
-void message::remove_from_folders ()
-  {
-    for (auto folder : folders)
-      {
-        folder->remove_message(this);
-      }
-  }
+void message::remove_from_folders()
+{
+  for (auto folder : folders)
+    {
+      folder->remove_message (this);
+    }
+}
 
 ostream &operator<< (ostream &os, const message &message)
-  {
-    os << "\"" << message.contents << "\"";
-    return os;
-  }
+{
+  os << "\"" << message.contents << "\"";
+  return os;
+}
 
 void swap (message &lhs, message &rhs)
-  {
-    using std::swap;
+{
+  using std::swap;
 
-    for (auto folder : lhs.folders)
-      {
-        folder->remove_message(&lhs);
-      }
-    for (auto folder : rhs.folders)
-      {
-        folder->remove_message(&rhs);
-      }
+  for (auto folder : lhs.folders)
+    {
+      folder->remove_message (&lhs);
+    }
+  for (auto folder : rhs.folders)
+    {
+      folder->remove_message (&rhs);
+    }
 
-    swap(lhs.folders, rhs.folders);
-    swap(lhs.contents, rhs.contents);
+  swap (lhs.folders, rhs.folders);
+  swap (lhs.contents, rhs.contents);
 
-    for (auto folder : lhs.folders)
-      {
-        folder->add_message(&lhs);
-      }
-    for (auto folder : rhs.folders)
-      {
-        folder->add_message(&rhs);
-      }
-  }
+  for (auto folder : lhs.folders)
+    {
+      folder->add_message (&lhs);
+    }
+  for (auto folder : rhs.folders)
+    {
+      folder->add_message (&rhs);
+    }
+}
 
-void message::print_folders ()
-  {
-    if (folders.empty())
-      {
-        cout << "the folder is empty";
-      }
-    for (auto &folder : folders)
-      {
-        cout << "\"" << *folder << "\"" << " ";
-      }
-  }
+void message::print_folders()
+{
+  if (folders.empty())
+    {
+      cout << "the folder is empty";
+    }
+  for (auto &folder : folders)
+    {
+      cout << "\"" << *folder << "\""
+           << " ";
+    }
+}

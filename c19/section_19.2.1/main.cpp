@@ -4,75 +4,79 @@
 using namespace std;
 
 class A
-   {
-   public:
-      A () = default;
+{
+public:
 
-      virtual ~A () = default;
+  A() = default;
 
-      friend std::ostream &operator<< (ostream &os, const A &a)
-        {
-          os << "I am A";
-          return os;
-        }
-   };
+  virtual ~A() = default;
+
+  friend std::ostream &operator<< (ostream &os, const A &a)
+  {
+    os << "I am A";
+    return os;
+  }
+};
 
 class B : public A
-   {
-   public:
-      B () = default;
+{
+public:
 
-      virtual ~B () = default;
-   };
+  B() = default;
+
+  virtual ~B() = default;
+};
 
 class C : public B
-   {
-   public:
-      C () = default;
+{
+public:
 
-      virtual ~C () = default;
+  C() = default;
 
-      friend std::ostream &operator<< (ostream &os, const C &c)
-        {
-          os << "I am C";
-          return os;
-        }
-   };
+  virtual ~C() = default;
 
-//class D : public B, public A // Direct base 'A' is inaccessible due to ambiguity: class D -> class B -> class A class D -> class
-//   {
-//   public:
-//      D ()
-//        { }
-//
-//      virtual ~D ()
-//        {
-//
-//        }
-//   };
-
-int main ()
+  friend std::ostream &operator<< (ostream &os, const C &c)
   {
-//    // a
-    A *pa = new C;
-//    B *pb = dynamic_cast<B*>(pa);
-
-    // b
-//    B *pb = new B;
-//    C *pc = dynamic_cast<C *>(pb);
-//
-//    // c
-//    A *pa = new D; // Ambiguous conversion from derived class 'D' to base class 'A': class D -> class B -> class A class D -> class A
-//    B *pb = dynamic_cast<B*>(pa);
-
-    if (C *pc = dynamic_cast<C *>(pa)) // Condition is always true
-      {
-        cout << *pc << endl;
-      }
-    else
-      {
-        cout << *pa << endl;
-      }
-
-    return 0;
+    os << "I am C";
+    return os;
   }
+};
+
+// class D : public B, public A // Direct base 'A' is inaccessible due to ambiguity: class D -> class B -> class A class
+// D -> class
+//    {
+//    public:
+//       D ()
+//         { }
+//
+//       virtual ~D ()
+//         {
+//
+//         }
+//    };
+
+int main()
+{
+  //    // a
+  A *pa = new C;
+  //    B *pb = dynamic_cast<B*>(pa);
+
+  // b
+  //    B *pb = new B;
+  //    C *pc = dynamic_cast<C *>(pb);
+  //
+  //    // c
+  //    A *pa = new D; // Ambiguous conversion from derived class 'D' to base class 'A': class D -> class B -> class A
+  //    class D -> class A B *pb = dynamic_cast<B*>(pa);
+
+  if (C *pc = dynamic_cast<C *> (pa))  // Condition is always true
+    {
+      cout << *pc << endl;
+    }
+  else
+    {
+      cout << *pa << endl;
+    }
+
+  return 0;
+}

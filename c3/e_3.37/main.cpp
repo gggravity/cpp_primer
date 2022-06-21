@@ -2,14 +2,14 @@
 
 int main()
 {
-    const char ca[] = {'h', 'e', 'l', 'l', 'o'};
-    const char *cp = ca;
+  const char ca[] = {'h', 'e', 'l', 'l', 'o'};
+  const char *cp = ca;
 
-    while (*cp)
+  while (*cp)
     {
-        std::cout << *cp << std::endl;
-        ++cp;
+      std::cout << *cp << std::endl;
+      ++cp;
     }
 
-    return 0;
+  return 0;
 }

@@ -7,21 +7,21 @@ class TextQuery;
 
 class QueryResult;
 
-#include <bits/stdc++.h>
 #include "Query.h"
 #include "QueryBase.h"
+#include <bits/stdc++.h>
 
 using namespace std;
 
 class NotQuery : public QueryBase
-   {
-      friend Query operator~ (const Query &query);
+{
+  friend Query operator~(const Query &query);
 
-      NotQuery (Query query);
+  NotQuery (Query query);
 
-      [[nodiscard]] string rep () const override;
+  [[nodiscard]] string rep() const override;
 
-      [[nodiscard]] QueryResult eval (const TextQuery &text_query) const override;
+  [[nodiscard]] QueryResult eval (const TextQuery &text_query) const override;
 
-      Query query;
-   };
+  Query query;
+};

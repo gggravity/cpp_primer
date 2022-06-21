@@ -2,19 +2,19 @@
 
 using namespace std;
 
-istream &print(istream &is)
-  {
-    string temp;
-    is >> temp;
-    cout << "Read: " << temp << endl;
-    return is;
-  }
+istream &print (istream &is)
+{
+  string temp;
+  is >> temp;
+  cout << "Read: " << temp << endl;
+  return is;
+}
 
-int main ()
+int main()
 try
   {
 
-    print(cin);
+    print (cin);
 
     // e 8.3 - failed state.
 

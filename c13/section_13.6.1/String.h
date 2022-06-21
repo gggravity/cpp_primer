@@ -8,48 +8,50 @@
 using namespace std;
 
 class String
-   {
-   public:
-      String () = default;
+{
+public:
 
-      explicit String (const string& string);
+  String() = default;
 
-      explicit String (const char* c_string);
+  explicit String (const string &string);
 
-      String (const String &other);
+  explicit String (const char *c_string);
 
-      String &operator= (const String &other);
+  String (const String &other);
 
-      String &operator= (const char* other);
+  String &operator= (const String &other);
 
-      ~String ();
+  String &operator= (const char *other);
 
-      void push_back (const char &c);
+  ~String();
 
-      inline size_t size () const;
+  void push_back (const char &c);
 
-      size_t capacity () const;
+  inline size_t size() const;
 
-      void reserve (size_t n);
+  size_t capacity() const;
 
-      [[nodiscard]] char *begin () const;
+  void reserve (size_t n);
 
-      [[nodiscard]] char *end () const;
+  [[nodiscard]] char *begin() const;
 
-      friend ostream &operator<< (ostream &os, const String &string);
+  [[nodiscard]] char *end() const;
 
-   private:
-      static allocator<char> alloc;
+  friend ostream &operator<< (ostream &os, const String &string);
 
-      char *elements { nullptr };    // pointer to the first element in the array
-      char *first_free { nullptr };  // pointer tro the first free element in the array
-      char *cap { nullptr };         // pointer to one past the end of the array
+private:
 
-      void check_and_allocate ();
+  static allocator<char> alloc;
 
-      static pair<char *, char *> allocate_and_copy (const char *begin, const char *end);
+  char *elements {nullptr};    // pointer to the first element in the array
+  char *first_free {nullptr};  // pointer tro the first free element in the array
+  char *cap {nullptr};         // pointer to one past the end of the array
 
-      void free ();
+  void check_and_allocate();
 
-      void reallocate (size_t new_capacity = 0);
-   };
+  static pair<char *, char *> allocate_and_copy (const char *begin, const char *end);
+
+  void free();
+
+  void reallocate (size_t new_capacity = 0);
+};

@@ -3,24 +3,19 @@
 //
 
 #include "AndQuery.h"
-#include "TextQuery.h"
 #include "QueryResult.h"
+#include "TextQuery.h"
 
-
-AndQuery::AndQuery (const Query &lhs, const Query &rhs) :
-    BinaryQuery(lhs, rhs, "&")
-  {
-
-  }
+AndQuery::AndQuery (const Query &lhs, const Query &rhs) : BinaryQuery (lhs, rhs, "&") {}
 
 QueryResult AndQuery::eval (const TextQuery &text_query) const
-  {
-    cout << "AndQuery eval operator running..." << endl;
-    return {};
-  }
+{
+  cout << "AndQuery eval operator running..." << endl;
+  return {};
+}
 
-Query operator&(const Query &lhs, const Query &rhs)
-  {
-    cout << "AndQuery operator running..." << endl;
-    return shared_ptr<QueryBase>(new AndQuery(lhs, rhs));
-  }
+Query operator& (const Query &lhs, const Query &rhs)
+{
+  cout << "AndQuery operator running..." << endl;
+  return shared_ptr<QueryBase> (new AndQuery (lhs, rhs));
+}

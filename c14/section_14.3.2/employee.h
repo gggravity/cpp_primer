@@ -8,18 +8,17 @@
 using namespace std;
 
 struct employee
-    {
-        string name;
-        string adresse;
-        string country;
-        string phone;
-        unsigned int id;
+{
+  string name;
+  string adresse;
+  string country;
+  string phone;
+  unsigned int id;
 
-        bool operator== (const employee &rhs) const;
+  bool operator== (const employee &rhs) const;
 
-        bool operator!= (const employee &rhs) const;
-
-    };
+  bool operator!= (const employee &rhs) const;
+};
 
 istream &operator>> (istream &is, employee &employee);
 

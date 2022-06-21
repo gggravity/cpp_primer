@@ -1,13 +1,19 @@
 #include <iostream>
 
-int main() {
-    int v1 = 0;
-    int v2 = 0;
-    std::cout << "Enter two numbers:" << std::endl;
-    std::cin >> v1;
-    std::cin >> v2;
-    std::cout << "The sum of the two numbers is: ";
-    std::cout << v1 * v2;
-    std::cout << std::endl;
-    return 0;
+using namespace std;
+
+int main()
+{
+  int v1 = 0;
+  int v2 = 0;
+
+  cout << "Enter two numbers:" << endl;
+  cin >> v1;
+  cin >> v2;
+
+  cout << "The sum of the two numbers is: ";
+  cout << v1 * v2;
+  cout << endl;
+
+  return 0;
 }

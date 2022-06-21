@@ -5,20 +5,20 @@ class X;
 class Y;
 
 class X
-      {
-            Y *y_prt {};
-      };
+{
+  Y *y_prt {};
+};
 
 class Y
-      {
-            X x {};
-      };
+{
+  X x {};
+};
 
-int main ()
-  {
-    X x;
-    Y y;
+int main()
+{
+  X x;
+  Y y;
 
-    std::cout << "Hello, World!" << std::endl;
-    return 0;
-  }
+  std::cout << "Hello, World!" << std::endl;
+  return 0;
+}

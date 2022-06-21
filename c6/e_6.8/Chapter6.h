@@ -5,6 +5,6 @@
 #ifndef _CHAPTER6_H_
 #define _CHAPTER6_H_
 
-int factorial(int number);
+int factorial (int number);
 
-#endif //_CHAPTER6_H_
+#endif  //_CHAPTER6_H_

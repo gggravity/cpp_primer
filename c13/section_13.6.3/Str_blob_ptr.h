@@ -2,7 +2,7 @@
 // Created by martin on 24/05/2022.
 //
 
-# pragma once
+#pragma once
 
 #include <bits/stdc++.h>
 
@@ -11,38 +11,38 @@ class Str_blob;
 using namespace std;
 
 class Str_blob_ptr
-      {
-      public:
-            Str_blob_ptr ();
+{
+public:
 
-            explicit Str_blob_ptr (Str_blob &a, size_t sz = 0);
+  Str_blob_ptr();
 
-            Str_blob_ptr &operator= (const Str_blob_ptr &rhs)
-              {
-                if (this == &rhs)
-                  { //is there any need of self-assignment .
-                    return *this;
-                  }
+  explicit Str_blob_ptr (Str_blob &a, size_t sz = 0);
 
-                w_ptr = rhs.w_ptr;
-                current = rhs.current;
+  Str_blob_ptr &operator= (const Str_blob_ptr &rhs)
+  {
+    if (this == &rhs)
+      {  // is there any need of self-assignment .
+        return *this;
+      }
 
-                cout << "copy assignment constructor called." << endl;
+    w_ptr = rhs.w_ptr;
+    current = rhs.current;
 
-                return *this;
-              };
+    cout << "copy assignment constructor called." << endl;
 
-            virtual ~Str_blob_ptr ();
+    return *this;
+  };
 
-            [[nodiscard]] string &dereference () const;
+  virtual ~Str_blob_ptr();
 
-            Str_blob_ptr &increment ();
+  [[nodiscard]] string &dereference() const;
 
-      private:
-            [[nodiscard]] shared_ptr<vector<string>> check (size_t i, const string &msg) const;
+  Str_blob_ptr &increment();
 
-            weak_ptr<vector<string>> w_ptr;
-            size_t current;
-      };
+private:
 
+  [[nodiscard]] shared_ptr<vector<string>> check (size_t i, const string &msg) const;
 
+  weak_ptr<vector<string>> w_ptr;
+  size_t current;
+};

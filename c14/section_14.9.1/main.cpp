@@ -1,23 +1,23 @@
-#include <bits/stdc++.h>
 #include "Sales_data.h"
 #include "employee.h"
+#include <bits/stdc++.h>
 
 using namespace std;
 
 struct Integral
-    {
-        operator const int ();
+{
+  operator const int();
 
-        operator int () const;
-    };
+  operator int() const;
+};
 
-int main ()
+int main()
 try
   {
 
-    Sales_data sd { "123-123-XXX-QWE", 10, 58.50 };
+    Sales_data sd {"123-123-XXX-QWE", 10, 58.50};
 
-    string sd_string { sd };
+    string sd_string {sd};
 
     cout << sd_string << endl;
 
@@ -34,18 +34,16 @@ try
 
     // e 14.49
 
-    employee frank { "Frankenstein", "Transylvania", "Garden of Eden", "+1 666", 666 };
-    employee franz { "Franz Ferdinand", "Sarajevo", "Austria-Hungary", "+1 123-123-123", 1 };
+    employee frank {"Frankenstein", "Transylvania", "Garden of Eden", "+1 666", 666};
+    employee franz {"Franz Ferdinand", "Sarajevo", "Austria-Hungary", "+1 123-123-123", 1};
 
     cout << boolalpha;
     cout << frank << endl;
     cout << franz << endl;
-    cout << frank.name << ": " << bool(frank) << endl;
-    cout << franz.name << ": " << bool(franz) << endl;
+    cout << frank.name << ": " << bool (frank) << endl;
+    cout << franz.name << ": " << bool (franz) << endl;
 
     cout << boolalpha;
-
-
 
     return 0;
   }
@@ -53,5 +51,3 @@ catch (exception &e)
   {
     cerr << "Error: " << e.what() << endl;
   }
-
-

@@ -4,7 +4,7 @@ using namespace std;
 
 // test sting some name blaster faster faster testing test
 
-int main ()
+int main()
 {
   string input, last;
   bool not_found = true;
@@ -22,7 +22,9 @@ int main ()
           last = input;
         }
     }
-    if(not_found)
+  if (not_found)
+    {
       cout << "no results found." << endl;
+    }
   return 0;
 }

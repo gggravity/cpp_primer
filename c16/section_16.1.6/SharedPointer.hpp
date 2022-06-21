@@ -4,108 +4,71 @@
 //
 
 struct Delete
-    {
-        template < typename T >
-        auto operator() (T *p) const
-          {
-            delete p;
-          }
-    };
+{
+  template <typename T> auto operator() (T *p) const { delete p; }
+};
 
 using namespace std;
 
-template < typename T >
-class SharedPointer
-   {
-   public:
-      SharedPointer () :
-          current_ptr(nullptr),
-          counter(new size_t(1)),
-          deleter(deleter)
-        { }
+template <typename T> class SharedPointer
+{
+public:
 
-      SharedPointer (T *ptr) noexcept :
-          current_ptr(ptr),
-          deleter(Delete()),
-          counter(new size_t(1))
-        {
-        }
+  SharedPointer() : current_ptr (nullptr), counter (new size_t (1)), deleter (deleter) {}
 
-      SharedPointer (T *ptr, const function<void (T *)> &deleter) noexcept :
-          current_ptr(ptr),
-          deleter(deleter),
-          counter(new size_t(1))
-        {
-        }
+  SharedPointer (T *ptr) noexcept : current_ptr (ptr), deleter (Delete()), counter (new size_t (1)) {}
 
-      SharedPointer (const SharedPointer &other) :
-          current_ptr(other.current_ptr),
-          counter(other.counter),
-          deleter(other.deleter)
-        {
-          ++*counter;
-        }
+  SharedPointer (T *ptr, const function<void (T *)> &deleter) noexcept
+      : current_ptr (ptr), deleter (deleter), counter (new size_t (1))
+  {
+  }
 
-      virtual ~SharedPointer ()
-        {
-          if (--*counter == 0)
-            {
-              deleter ? deleter(current_ptr) : delete current_ptr;
-            }
-        }
+  SharedPointer (const SharedPointer &other)
+      : current_ptr (other.current_ptr), counter (other.counter), deleter (other.deleter)
+  {
+    ++*counter;
+  }
 
-      auto reset (T *ptr)
-        {
-          auto old_ptr = current_ptr;
-          current_ptr = ptr;
-          delete old_ptr;
-        }
+  virtual ~SharedPointer()
+  {
+    if (--*counter == 0)
+      {
+        deleter ? deleter (current_ptr) : delete current_ptr;
+      }
+  }
 
-      auto swap (SharedPointer &other) noexcept
-        {
-          using std::swap;
-          swap(current_ptr, other.current_ptr);
-          swap(counter, other.current);
-          swap(deleter, other.deleter);
-        }
+  auto reset (T *ptr)
+  {
+    auto old_ptr = current_ptr;
+    current_ptr = ptr;
+    delete old_ptr;
+  }
 
-      T *get () const noexcept
-        {
-          return current_ptr;
-        }
+  auto swap (SharedPointer &other) noexcept
+  {
+    using std::swap;
+    swap (current_ptr, other.current_ptr);
+    swap (counter, other.current);
+    swap (deleter, other.deleter);
+  }
 
-      T &operator* () const noexcept
-        {
-          return *current_ptr;
-        }
+  T *get() const noexcept { return current_ptr; }
 
-      T *operator-> () const noexcept
-        {
-          return current_ptr;
-        }
+  T &operator*() const noexcept { return *current_ptr; }
 
-      T &operator[] (size_t index) const
-        {
-          return current_ptr[index];
-        }
+  T *operator->() const noexcept { return current_ptr; }
 
-      [[nodiscard]] auto use_count () const noexcept
-        {
-          return *counter;
-        }
+  T &operator[] (size_t index) const { return current_ptr[index]; }
 
-      [[nodiscard]] bool unique () const noexcept
-        {
-          return use_count() == 1;
-        }
+  [[nodiscard]] auto use_count() const noexcept { return *counter; }
 
-      explicit operator bool () const noexcept
-        {
-          return get();
-        }
+  [[nodiscard]] bool unique() const noexcept { return use_count() == 1; }
 
-   private:
-      T *current_ptr = nullptr;
-      size_t *counter = nullptr;
-      function<void (T *)> deleter = nullptr;
-   };
+  explicit operator bool() const noexcept { return get(); }
+
+private:
+
+  T *current_ptr = nullptr;
+  size_t *counter = nullptr;
+  function<void (T *)> deleter = nullptr;
+};

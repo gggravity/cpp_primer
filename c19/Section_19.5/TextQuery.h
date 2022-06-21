@@ -7,60 +7,49 @@
 
 using namespace std;
 
-//class QueryResult;
+// class QueryResult;
 
 class TextQuery
-   {
-   public:
+{
+public:
 
-      class QueryResult
-         {
-            using line_no = vector<string>::size_type;
+  class QueryResult
+  {
+    using line_no = vector<string>::size_type;
 
-            friend ostream &print (ostream &os, const QueryResult &query_result);
+    friend ostream &print (ostream &os, const QueryResult &query_result);
 
-         public:
-            QueryResult () = default;
+  public:
 
-            QueryResult (string s, shared_ptr<set<line_no>> p, const shared_ptr<vector<string>> &f)
-                :
-                sought(move(s)),
-                lines(move(p)),
-                file(f)
-              {
+    QueryResult() = default;
 
-              }
+    QueryResult (string s, shared_ptr<set<line_no>> p, const shared_ptr<vector<string>> &f)
+        : sought (move (s)), lines (move (p)), file (f)
+    {
+    }
 
-            set<line_no>::iterator begin ()
-              {
-                return lines->begin();
-              }
+    set<line_no>::iterator begin() { return lines->begin(); }
 
-            set<line_no>::iterator end ()
-              {
-                return lines->end();
-              }
+    set<line_no>::iterator end() { return lines->end(); }
 
-            shared_ptr<vector<string>> get_file ()
-              {
-                return file;
-              }
+    shared_ptr<vector<string>> get_file() { return file; }
 
-         private:
-            string sought;
-            shared_ptr<set<line_no>> lines;
-            shared_ptr<vector<string>> file;
-         };
+  private:
 
-      using line_no = vector<string>::size_type;
+    string sought;
+    shared_ptr<set<line_no>> lines;
+    shared_ptr<vector<string>> file;
+  };
 
-      TextQuery (ifstream &ifs);
+  using line_no = vector<string>::size_type;
 
-      TextQuery::QueryResult query (const string &query) const;
+  TextQuery (ifstream &ifs);
 
-   private:
-      shared_ptr<vector<string>> file;
+  TextQuery::QueryResult query (const string &query) const;
 
-      map<string, shared_ptr<set<line_no>>> wm;
+private:
 
-   };
+  shared_ptr<vector<string>> file;
+
+  map<string, shared_ptr<set<line_no>>> wm;
+};

@@ -1,12 +1,12 @@
-#include <bits/stdc++.h>
-#include "TextQuery.h"
-#include "QueryResult.h"
 #include "Query.h"
 #include "QueryBase.h"
+#include "QueryResult.h"
+#include "TextQuery.h"
+#include <bits/stdc++.h>
 
 using namespace std;
 
-int main ()
+int main()
 try
   {
 
@@ -16,5 +16,3 @@ catch (exception &e)
   {
     cerr << "Error: " << e.what() << endl;
   }
-
-

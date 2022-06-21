@@ -4,7 +4,7 @@ using namespace std;
 
 int factorial (int number)
 {
-  int result{1};
+  int result {1};
 
   while (number > 1)
     {
@@ -14,9 +14,9 @@ int factorial (int number)
   return result;
 }
 
-void interact ()
+void interact()
 {
-  int input{0};
+  int input {0};
 
   do
     {
@@ -27,9 +27,9 @@ void interact ()
   while (input != 0);
 }
 
-int main ()
+int main()
 {
-  interact ();
+  interact();
 
   return 0;
 }

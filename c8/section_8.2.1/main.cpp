@@ -3,53 +3,51 @@
 using namespace std;
 
 struct Sales_data
-    {
-        string bookNo;
-        unsigned units_sold = 0;
-        double revenue = 0.0;
-    };
+{
+  string bookNo;
+  unsigned units_sold = 0;
+  double revenue = 0.0;
+};
 
-
-int main ()
+int main()
 try
   {
 
-//    string file_name { "../input_file.txt" };
-//
-//    auto ifs = ifstream { file_name };
-//
-//    if (!ifs)
-//      {
-//        cerr << "Error opening file " << file_name;
-//        exit(EXIT_FAILURE);
-//      }
-//
-//    vector<string> vec;
-//    for (string input ; !ifs.eof() ;)
-//      {
-////        getline(ifs, input);
-//        ifs >> input;
-//        vec.push_back(input);
-//      }
-//
-//    for (const auto &item : vec)
-//      {
-//        cout << item << endl;
-//      }
+    //    string file_name { "../input_file.txt" };
+    //
+    //    auto ifs = ifstream { file_name };
+    //
+    //    if (!ifs)
+    //      {
+    //        cerr << "Error opening file " << file_name;
+    //        exit(EXIT_FAILURE);
+    //      }
+    //
+    //    vector<string> vec;
+    //    for (string input ; !ifs.eof() ;)
+    //      {
+    ////        getline(ifs, input);
+    //        ifs >> input;
+    //        vec.push_back(input);
+    //      }
+    //
+    //    for (const auto &item : vec)
+    //      {
+    //        cout << item << endl;
+    //      }
 
     Sales_data total;
     double price;
 
-    string file_name { "../input_file_2.txt" };
+    string file_name {"../input_file_2.txt"};
 
-    auto ifs = ifstream { file_name };
+    auto ifs = ifstream {file_name};
 
-    if (!ifs)
+    if (! ifs)
       {
         cerr << "Error opening file " << file_name;
-        exit(EXIT_FAILURE);
+        exit (EXIT_FAILURE);
       }
-
 
     if (ifs >> total.bookNo >> total.units_sold >> price)
       {
@@ -62,14 +60,12 @@ try
             if (total.bookNo == trans.bookNo)
               {
                 total.revenue += trans.revenue;
-                cout << "adding " << trans.revenue
-                     << " to old book revenue"
-                     << " for a total of: "
-                     << total.revenue << endl;
+                cout << "adding " << trans.revenue << " to old book revenue"
+                     << " for a total of: " << total.revenue << endl;
               }
             else
               {
-                cout << "Book revenue: " << total.revenue  << " For: " << total.bookNo << endl;
+                cout << "Book revenue: " << total.revenue << " For: " << total.bookNo << endl;
                 total = trans;
               }
           }

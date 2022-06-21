@@ -2,7 +2,7 @@
 
 using namespace std;
 
-int main ()
+int main()
 try
   {
     // e 11.24
@@ -18,12 +18,12 @@ try
 
     // e 11.25
 
-//    array<int, 10> v;
+    //    array<int, 10> v;
     vector<int> v;
-    v.push_back(1);
-//    v[0] = 1;
+    v.push_back (1);
+    //    v[0] = 1;
 
-    for (int i { 0 } ; i < v.size() ; ++i)
+    for (int i {0}; i < v.size(); ++i)
       {
         cout << i << " " << v[i] << endl;
       }
@@ -74,5 +74,3 @@ catch (exception &e)
   {
     cerr << "Error: " << e.what() << endl;
   }
-
-

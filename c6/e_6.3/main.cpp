@@ -4,7 +4,7 @@ using namespace std;
 
 int fact (int number)
 {
-  int result{1};
+  int result {1};
 
   while (number > 1)
     {
@@ -14,7 +14,7 @@ int fact (int number)
   return result;
 }
 
-int main ()
+int main()
 {
   cout << fact (5);
 

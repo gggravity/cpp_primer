@@ -5,20 +5,22 @@
 
 class QueryResult;
 
-#include <bits/stdc++.h>
 #include "TextQuery.h"
+#include <bits/stdc++.h>
 
 using namespace std;
 
 class QueryBase
-   {
-      friend class Query;
+{
+  friend class Query;
 
-   protected:
-      virtual ~QueryBase () = default;
+protected:
 
-   private:
-      [[nodiscard]] virtual QueryResult eval (const TextQuery &text_query) const = 0;
+  virtual ~QueryBase() = default;
 
-      [[nodiscard]] virtual string rep () const = 0;
-   };
+private:
+
+  [[nodiscard]] virtual QueryResult eval (const TextQuery &text_query) const = 0;
+
+  [[nodiscard]] virtual string rep() const = 0;
+};

@@ -3,11 +3,11 @@
 using namespace std;
 
 struct Sales_data
-    {
-        string bookNo;
-        unsigned units_sold = 0;
-        double revenue = 0.0;
-    };
+{
+  string bookNo;
+  unsigned units_sold = 0;
+  double revenue = 0.0;
+};
 
 int main (int argc, char *argv[])
 try
@@ -15,24 +15,23 @@ try
     Sales_data total;
     double price;
 
-    string file_name { "../input_file.txt" };
+    string file_name {"../input_file.txt"};
 
-    auto ifs = ifstream { file_name };
+    auto ifs = ifstream {file_name};
 
-    if (!ifs)
+    if (! ifs)
       {
         cerr << "Error opening file " << file_name;
-        exit(EXIT_FAILURE);
+        exit (EXIT_FAILURE);
       }
 
-    auto ofs = ofstream { argv[1] , ofstream::app};
+    auto ofs = ofstream {argv[1], ofstream::app};
 
-    if (!ofs)
+    if (! ofs)
       {
         cerr << "Error opening file " << file_name;
-        exit(EXIT_FAILURE);
+        exit (EXIT_FAILURE);
       }
-
 
     if (ifs >> total.bookNo >> total.units_sold >> price)
       {
@@ -45,19 +44,17 @@ try
             if (total.bookNo == trans.bookNo)
               {
                 total.revenue += trans.revenue;
-                ofs<< "adding " << trans.revenue
-                     << " to old book revenue"
-                     << " for a total of: "
-                     << total.revenue << endl;
+                ofs << "adding " << trans.revenue << " to old book revenue"
+                    << " for a total of: " << total.revenue << endl;
               }
             else
               {
-                ofs << "Book revenue: " << total.revenue  << " For: " << total.bookNo << endl;
+                ofs << "Book revenue: " << total.revenue << " For: " << total.bookNo << endl;
                 total = trans;
               }
           }
 
-          ofs << "Total revenue: " << total.revenue << endl;
+        ofs << "Total revenue: " << total.revenue << endl;
       }
     else
       {

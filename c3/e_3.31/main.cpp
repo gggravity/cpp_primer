@@ -2,17 +2,17 @@
 
 int main()
 {
-    int array[10];
+  int array[10];
 
-    for (int i = 0; i <= 10; i++)
+  for (int i = 0; i <= 10; i++)
     {
-        array[i] = i;
+      array[i] = i;
     }
 
-    for (auto a : array)
+  for (auto a : array)
     {
-        std::cout << a << " ";
+      std::cout << a << " ";
     }
 
-    return 0;
+  return 0;
 }

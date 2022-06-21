@@ -2,16 +2,16 @@
 
 using namespace std;
 
-void swap(int *a, int *b)
+void swap (int *a, int *b)
 {
   int temp = *a;
   *a = *b;
   *b = temp;
 }
 
-int main ()
+int main()
 {
-  int a{123}, b{321};
+  int a {123}, b {321};
   int *pa = &a, *pb = &b;
 
   cout << "a = " << a << endl;

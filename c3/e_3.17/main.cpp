@@ -3,29 +3,30 @@
 
 int main()
 {
-    std::vector<std::string> vector;
-    std::string string;
+  std::vector<std::string> vector;
+  std::string string;
 
-    while (std::cin >> string)
+  while (std::cin >> string)
     {
-        if (string == ".")
-            break;
-        vector.push_back(string);
+      if (string == ".")
+        {
+          break;
+        }
+      vector.push_back (string);
     }
 
-    for (auto &s : vector)
+  for (auto &s : vector)
     {
-        for (auto &c : s)
+      for (auto &c : s)
         {
-            c = toupper(c);
+          c = toupper (c);
         }
     }
 
-    for (auto word : vector)
+  for (auto word : vector)
     {
-        std::cout << word << " ";
+      std::cout << word << " ";
     }
 
-
-    return 0;
+  return 0;
 }

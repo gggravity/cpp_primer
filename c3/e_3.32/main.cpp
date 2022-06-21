@@ -3,45 +3,45 @@
 
 int main()
 {
-    int array[10];
+  int array[10];
 
-    for (int i = 0; i <= 10; i++)
+  for (int i = 0; i <= 10; i++)
     {
-        array[i] = i;
+      array[i] = i;
     }
 
-    for (auto a : array)
+  for (auto a : array)
     {
-        std::cout << a << " ";
+      std::cout << a << " ";
     }
 
-    int array_new[10];
+  int array_new[10];
 
-    for (int i = 0; i <= 10; i++)
+  for (int i = 0; i <= 10; i++)
     {
-        array_new[i] = array[i];
+      array_new[i] = array[i];
     }
 
-    std::cout <<std::endl << "The copied array" << std::endl;
+  std::cout << std::endl << "The copied array" << std::endl;
 
-    for (auto a : array)
+  for (auto a : array)
     {
-        std::cout << a << " ";
+      std::cout << a << " ";
     }
 
-    std::vector<int> vector;
+  std::vector<int> vector;
 
-    for(int i = 0; i < 10; ++i)
+  for (int i = 0; i < 10; ++i)
     {
-        vector.push_back(i);
+      vector.push_back (i);
     }
 
-    std::cout <<std::endl << "The content of the vector are" << std::endl;
+  std::cout << std::endl << "The content of the vector are" << std::endl;
 
-    for (auto v : vector)
+  for (auto v : vector)
     {
-        std::cout << v << " ";
+      std::cout << v << " ";
     }
 
-    return 0;
+  return 0;
 }

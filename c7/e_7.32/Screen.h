@@ -6,50 +6,47 @@
 using namespace std;
 
 class Screen
-      {
-      public:
-            using position = string::size_type;
+{
+public:
 
-            Screen () = default;
+  using position = string::size_type;
 
-            Screen (position height, position width);
+  Screen() = default;
 
-            Screen (position height, position width, char character);
+  Screen (position height, position width);
 
-            [[nodiscard]] char get () const;
+  Screen (position height, position width, char character);
 
-            [[nodiscard]] inline char get (position height, position width) const
-              {
-                position r = height * width;
-                return m_contents[r + width];
-              }
+  [[nodiscard]] char get() const;
 
-            Screen &move (position row, position characters);
+  [[nodiscard]] inline char get (position height, position width) const
+  {
+    position r = height * width;
+    return m_contents[r + width];
+  }
 
-            Screen &set (char c);
+  Screen &move (position row, position characters);
 
-            Screen &set (Screen::position r, Screen::position col, char ch);
+  Screen &set (char c);
 
-            Screen &display (ostream &os);
+  Screen &set (Screen::position r, Screen::position col, char ch);
 
-            const Screen &display (ostream &os) const;
+  Screen &display (ostream &os);
 
-            [[nodiscard]] position size() const
-              {
-                return m_height * m_width;
-              }
+  const Screen &display (ostream &os) const;
 
-      private:
-            position m_height { 0 };
-            position m_width { 0 };
-            position m_cursor { 0 };
-            string m_contents;
+  [[nodiscard]] position size() const { return m_height * m_width; }
 
-            void do_display (ostream &os) const;
+private:
 
-            // friends
+  position m_height {0};
+  position m_width {0};
+  position m_cursor {0};
+  string m_contents;
 
-            friend class Window_manager;
-      };
+  void do_display (ostream &os) const;
 
+  // friends
 
+  friend class Window_manager;
+};

@@ -2,10 +2,10 @@
 
 using namespace std;
 
-int main ()
+int main()
 {
   int input1, input2;
-  double result{0};
+  double result {0};
 
   cout << "Enter two integers and press enter (not zero)." << endl;
 
@@ -25,7 +25,7 @@ int main ()
         }
       catch (invalid_argument &error)
         {
-          cout << error.what ();
+          cout << error.what();
         }
       cout << "Enter two integers and press enter (not zero)." << endl;
     }

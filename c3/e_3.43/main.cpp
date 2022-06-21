@@ -1,17 +1,13 @@
 #include <iostream>
 
-int main ()
+int main()
 {
-  int ia[3][4] = {
-      {0, 1, 2, 3},
-      {4, 5, 6, 7},
-      {8, 9, 10, 11}
-  };
+  int ia[3][4] = {{0, 1, 2, 3}, {4, 5, 6, 7}, {8, 9, 10, 11}};
   // Range for
 
-  for (const int(&i)[4] : ia)
+  for (const int (&i)[4] : ia)
     {
-      for (const int &j: i)
+      for (const int &j : i)
         {
           std::cout << j << " ";
         }
@@ -35,7 +31,7 @@ int main ()
 
   // pointer
 
-  for (int(*p)[4] = std::begin (ia); p != std::end (ia); ++p)
+  for (int (*p)[4] = std::begin (ia); p != std::end (ia); ++p)
     {
       for (int *q = std::begin (*p); q != std::end (*p); ++q)
         {

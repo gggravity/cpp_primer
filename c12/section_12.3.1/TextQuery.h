@@ -1,20 +1,22 @@
 #pragma once
 
-#include <bits/stdc++.h>
 #include "QueryResult.h"
+#include <bits/stdc++.h>
 
 using namespace std;
 
 class TextQuery
-      {
-            typedef map<string, set<int>> word_map;
+{
+  typedef map<string, set<int>> word_map;
 
-      public:
-            [[maybe_unused]] explicit TextQuery (ifstream &infile);
+public:
 
-            QueryResult query (const string& s);
+  [[maybe_unused]] explicit TextQuery (ifstream &infile);
 
-      private:
-            shared_ptr<vector<string>> lines;
-            shared_ptr<word_map> word_to_lines;
-      };
+  QueryResult query (const string &s);
+
+private:
+
+  shared_ptr<vector<string>> lines;
+  shared_ptr<word_map> word_to_lines;
+};

@@ -3,21 +3,21 @@
 // Created by martin on 04-06-22.
 //
 
-#include <bits/stdc++.h>
-#include "QueryBase.h"
 #include "Query.h"
+#include "QueryBase.h"
+#include <bits/stdc++.h>
 
 using namespace std;
 
 class BinaryQuery : public QueryBase
-   {
-   protected:
-      BinaryQuery (Query lhs, Query rhs, string str);
+{
+protected:
 
-      [[nodiscard]] string rep () const override;
+  BinaryQuery (Query lhs, Query rhs, string str);
 
-      Query lhs;
-      Query rhs;
-      string operator_symbol;
+  [[nodiscard]] string rep() const override;
 
-   };
+  Query lhs;
+  Query rhs;
+  string operator_symbol;
+};

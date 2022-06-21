@@ -10,15 +10,16 @@ using namespace std;
 class QueryResult;
 
 class TextQuery
-   {
-   public:
-      TextQuery (ifstream &ifs);
+{
+public:
 
-      [[nodiscard]] QueryResult query (const string &query) const;
+  TextQuery (ifstream &ifs);
 
-   private:
-      shared_ptr<vector<string>> file;
+  [[nodiscard]] QueryResult query (const string &query) const;
 
-      map<string, shared_ptr<set<size_t>>> word_map;
+private:
 
-   };
+  shared_ptr<vector<string>> file;
+
+  map<string, shared_ptr<set<size_t>>> word_map;
+};

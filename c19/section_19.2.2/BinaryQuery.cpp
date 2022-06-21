@@ -6,16 +6,13 @@
 
 #include <utility>
 
-BinaryQuery::BinaryQuery (Query lhs, Query rhs, string s) :
-    lhs(std::move(lhs)),
-    rhs(std::move(rhs)),
-    op_sym(std::move(s))
-  {
+BinaryQuery::BinaryQuery (Query lhs, Query rhs, string s)
+    : lhs (std::move (lhs)), rhs (std::move (rhs)), op_sym (std::move (s))
+{
+}
 
-  }
-
-string BinaryQuery::rep () const
-  {
-    cout << "BinaryQuery rep running..." << endl;
-    return "(" + lhs.rep() + " " + op_sym + " " + rhs.rep() + ")";
-  }
+string BinaryQuery::rep() const
+{
+  cout << "BinaryQuery rep running..." << endl;
+  return "(" + lhs.rep() + " " + op_sym + " " + rhs.rep() + ")";
+}

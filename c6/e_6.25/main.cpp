@@ -10,7 +10,7 @@ int main (int argc, char *argv[])
   str2 = argv[2];
   concat_string = str1 + str2;
 
-  cout <<  concat_string << endl;
+  cout << concat_string << endl;
 
   return 0;
 }

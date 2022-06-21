@@ -2,10 +2,10 @@
 
 int main()
 {
-    std::string string;
-    while (std::cin >> string && string != "42")
+  std::string string;
+  while (std::cin >> string && string != "42")
     {
-        std::cout << string << std::endl;
+      std::cout << string << std::endl;
     }
-    return 0;
+  return 0;
 }

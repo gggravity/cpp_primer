@@ -1,11 +1,8 @@
 #include <iostream>
 
-int absolute (int i)
-{
-  return abs (i);
-}
+int absolute (int i) { return abs (i); }
 
-int main ()
+int main()
 {
   std::cout << absolute (-10) << std::endl;
 

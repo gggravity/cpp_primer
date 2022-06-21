@@ -8,22 +8,24 @@
 using namespace std;
 
 class QueryResult
-   {
-      friend ostream &print (ostream &os, const QueryResult &query_result);
+{
+  friend ostream &print (ostream &os, const QueryResult &query_result);
 
-   public:
-      QueryResult () = default;
+public:
 
-      QueryResult (string sought, shared_ptr<set<size_t>> ptr, const shared_ptr<vector<string>> &file);
+  QueryResult() = default;
 
-      set<size_t>::iterator begin ();
+  QueryResult (string sought, shared_ptr<set<size_t>> ptr, const shared_ptr<vector<string>> &file);
 
-      set<size_t>::iterator end ();
+  set<size_t>::iterator begin();
 
-      shared_ptr<vector<string>> get_file ();
+  set<size_t>::iterator end();
 
-   private:
-      string sought;
-      shared_ptr<set<size_t>> lines;
-      shared_ptr<vector<string>> file;
-   };
+  shared_ptr<vector<string>> get_file();
+
+private:
+
+  string sought;
+  shared_ptr<set<size_t>> lines;
+  shared_ptr<vector<string>> file;
+};

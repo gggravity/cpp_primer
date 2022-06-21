@@ -2,7 +2,7 @@
 // Created by martin on 24/05/2022.
 //
 
-# pragma once
+#pragma once
 
 #include <bits/stdc++.h>
 
@@ -11,25 +11,25 @@ class Str_blob;
 using namespace std;
 
 class Const_str_blob_ptr
-   {
-   public:
-      Const_str_blob_ptr ();
+{
+public:
 
-      explicit Const_str_blob_ptr (const Str_blob &a, size_t sz = 0);
+  Const_str_blob_ptr();
 
-      [[nodiscard]] string &dereference () const;
+  explicit Const_str_blob_ptr (const Str_blob &a, size_t sz = 0);
 
-      Const_str_blob_ptr &increment ();
+  [[nodiscard]] string &dereference() const;
 
-      const string &operator* () const;
+  Const_str_blob_ptr &increment();
 
-      const string *operator-> () const;
+  const string &operator*() const;
 
-   private:
-      shared_ptr<vector<string>> check (size_t i, const string &msg) const;
+  const string *operator->() const;
 
-      weak_ptr<vector<string>> w_ptr;
-      size_t current;
-   };
+private:
 
+  shared_ptr<vector<string>> check (size_t i, const string &msg) const;
 
+  weak_ptr<vector<string>> w_ptr;
+  size_t current;
+};

@@ -1,22 +1,24 @@
 #pragma once
 
-#include <bits/stdc++.h>
 #include "quote.h"
+#include <bits/stdc++.h>
 
 using namespace std;
 
 class bulk_quote : public quote
-   {
-   public:
-      bulk_quote () = default;
+{
+public:
 
-      bulk_quote (const string &name, double price, size_t quantity, double discount);
+  bulk_quote() = default;
 
-      [[nodiscard]] double net_price (size_t count) const override;
+  bulk_quote (const string &name, double price, size_t quantity, double discount);
 
-      void debug () override;
+  [[nodiscard]] double net_price (size_t count) const override;
 
-   private:
-      size_t min_quantity { 0 };
-      double discount { 0.0 };
-   };
+  void debug() override;
+
+private:
+
+  size_t min_quantity {0};
+  double discount {0.0};
+};

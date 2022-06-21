@@ -1,42 +1,40 @@
-#include <bits/stdc++.h>
-#include "quote.h"
 #include "bulk_quote.h"
 #include "discount_quote.h"
+#include "quote.h"
+#include <bits/stdc++.h>
 
 using namespace std;
 
 class base
-   {
-   public:
-      string name ()
-        {
-          return basename;
-        }
+{
+public:
 
-      virtual void print (ostream &os)
-        {
-          os << basename;
-        }
+  string name() { return basename; }
 
-   private:
-      string basename { "basename" };
-   };
+  virtual void print (ostream &os) { os << basename; }
+
+private:
+
+  string basename {"basename"};
+};
 
 class derived : public base
-   {
-   public:
-      void print (ostream &os) override
-        {
-          os << " ";
-          base::print(os);
-          os << " " << i << endl;
-        }
+{
+public:
 
-   private:
-      int i { 10 };
-   };
+  void print (ostream &os) override
+  {
+    os << " ";
+    base::print (os);
+    os << " " << i << endl;
+  }
 
-int main ()
+private:
+
+  int i {10};
+};
+
+int main()
 try
   {
     // e 15.11
@@ -54,8 +52,8 @@ try
     base b;
     derived d;
 
-    b.print(cout);
-    d.print(cout);
+    b.print (cout);
+    d.print (cout);
 
     // 15.14
 
@@ -66,14 +64,12 @@ try
     derived *bp2 = &dobj;
     derived &br2 = dobj;
 
-    bobj.print(cout); // runtime
-    dobj.print(cout); // runtime
+    bobj.print (cout);  // runtime
+    dobj.print (cout);  // runtime
     cout << bp1->name() << endl;
     cout << bp2->name() << endl;
-    br1.print(cout);
-    br2.print(cout);
-
-
+    br1.print (cout);
+    br2.print (cout);
 
     return 0;
   }
@@ -81,5 +77,3 @@ catch (exception &e)
   {
     cerr << "Error: " << e.what() << endl;
   }
-
-

@@ -1,16 +1,17 @@
 #include <iostream>
 
-int main() {
+int main()
+{
 
-    int val = 50, sum = 0;
+  int val = 50, sum = 0;
 
-    while (val <= 100)
+  while (val <= 100)
     {
-        sum += val;
-        ++val;
+      sum += val;
+      ++val;
     }
 
-    std::cout << "The sum of the numbers from 50 to 100 is: " << sum << std::endl;
+  std::cout << "The sum of the numbers from 50 to 100 is: " << sum << std::endl;
 
-    return 0;
+  return 0;
 }

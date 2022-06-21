@@ -1,17 +1,17 @@
-#include <bits/stdc++.h>
 #include "Str_blob.h"
 #include "Str_blob_ptr.h"
+#include <bits/stdc++.h>
 
 using namespace std;
 
-int main ()
+int main()
 try
   {
-    Str_blob sb { "A", "B", "C", "D" };
+    Str_blob sb {"A", "B", "C", "D"};
 
-//    cout << sb[1] << endl;
+    //    cout << sb[1] << endl;
 
-    Str_blob_ptr sbp { sb };
+    Str_blob_ptr sbp {sb};
 
     cout << "dereference: " << *sbp++ << endl;
     cout << "dereference: " << *sbp++ << endl;

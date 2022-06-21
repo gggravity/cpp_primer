@@ -2,53 +2,50 @@
 
 using namespace std;
 
-template < typename Bitset >
-void print (Bitset bitset)
+template <typename Bitset> void print (Bitset bitset)
+{
+  for (size_t i {0}; i < bitset.size(); ++i)
+    {
+      cout << bitset[i];
+    }
+  cout << endl;
+}
+
+template <size_t Answers> struct Quiz
+{
+  Quiz (const string &name, const string &answers) : name (name)
   {
-    for (size_t i { 0 } ; i < bitset.size() ; ++i)
-      {
-        cout << bitset[i];
-      }
-    cout << endl;
+    auto reversed {answers};
+    reverse (reversed.begin(), reversed.end());
+    _answers = bitset<Answers> (string (reversed));
   }
 
-template < size_t Answers >
-struct Quiz
-    {
-        Quiz (const string &name, const string &answers) :
-            name(name)
+  void print_result()
+  {
+    for (size_t i {0}; i < _answers.size(); ++i)
+      {
+        if (_answers.test (i))
           {
-            auto reversed { answers };
-            reverse(reversed.begin(), reversed.end());
-            _answers = bitset<Answers>(string(reversed));
+            cout << name << " answered question " << i + 1 << " correct" << endl;
           }
-
-        void print_result ()
+        else
           {
-            for (size_t i { 0 } ; i < _answers.size() ; ++i)
-              {
-                if (_answers.test(i))
-                  {
-                    cout << name << " answered question " << i + 1 << " correct" << endl;
-                  }
-                else
-                  {
-                    cout << name << " answered question " << i + 1 << " wrong" << endl;
-                  }
-              }
+            cout << name << " answered question " << i + 1 << " wrong" << endl;
           }
+      }
+  }
 
-        string name;
-        bitset<Answers> _answers;
-    };
+  string name;
+  bitset<Answers> _answers;
+};
 
-int main ()
+int main()
 try
   {
-    Quiz<10> anna { "Anna", "1110001110" };
+    Quiz<10> anna {"Anna", "1110001110"};
     anna.print_result();
 
-    Quiz<20> anna_frank { "Anna Frank", "11100011101110001110" };
+    Quiz<20> anna_frank {"Anna Frank", "11100011101110001110"};
     anna_frank.print_result();
 
     return 0;
@@ -57,5 +54,3 @@ catch (exception &e)
   {
     cerr << "Error: " << e.what() << endl;
   }
-
-

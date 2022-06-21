@@ -2,18 +2,18 @@
 
 int main()
 {
-    int i = 0;
-    int *p = &i;
+  int i = 0;
+  int *p = &i;
 
-    std::cout << "p = " << p << " *p = " << *p << std::endl;
+  std::cout << "p = " << p << " *p = " << *p << std::endl;
 
-    if (p) // p have an address
+  if (p)  // p have an address
     {
-        std::cout << "if (p)" << std::endl;
+      std::cout << "if (p)" << std::endl;
     }
-    if (*p) // if the value is not 0
+  if (*p)  // if the value is not 0
     {
-        std::cout << "if (*p)" << std::endl;
+      std::cout << "if (*p)" << std::endl;
     }
-    return 0;
+  return 0;
 }

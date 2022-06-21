@@ -8,64 +8,64 @@
 using namespace std;
 
 class string_vector
-   {
-   public:
-      string_vector ();
+{
+public:
 
-      string_vector (initializer_list<string> initializer_list);
+  string_vector();
 
-      string_vector (const string_vector &other);
+  string_vector (initializer_list<string> initializer_list);
 
-      string_vector &operator= (const string_vector &other);
+  string_vector (const string_vector &other);
 
-      string_vector &operator= (string_vector &&other) noexcept;
+  string_vector &operator= (const string_vector &other);
 
-      string_vector (string_vector &&other) noexcept;
+  string_vector &operator= (string_vector &&other) noexcept;
 
-      string &operator[] (size_t n);
+  string_vector (string_vector &&other) noexcept;
 
-      const string &operator[] (size_t n) const;
+  string &operator[] (size_t n);
 
-      ~string_vector ();
+  const string &operator[] (size_t n) const;
 
-      void push_back (const string &string);
+  ~string_vector();
 
-      inline size_t size () const;
+  void push_back (const string &string);
 
-      [[nodiscard]] size_t capacity () const;
+  inline size_t size() const;
 
-      void reserve (size_t n);
+  [[nodiscard]] size_t capacity() const;
 
-      [[nodiscard]] string *begin () const;
+  void reserve (size_t n);
 
-      [[nodiscard]] string *end () const;
+  [[nodiscard]] string *begin() const;
 
-      template < typename... Args >
-      inline void emplace_back (Args &&... args)
-        {
-          check_and_allocate();
-          alloc.construct(first_free++, std::forward<Args>(args)...);
-        }
+  [[nodiscard]] string *end() const;
 
-      friend ostream &operator<< (ostream &os, const string_vector &vector);
+  template <typename... Args> inline void emplace_back (Args &&...args)
+  {
+    check_and_allocate();
+    alloc.construct (first_free++, std::forward<Args> (args)...);
+  }
 
-      friend bool operator== (const string_vector &lhs, const string_vector &rhs);
+  friend ostream &operator<< (ostream &os, const string_vector &vector);
 
-      friend bool operator!= (const string_vector &lhs, const string_vector &rhs);
+  friend bool operator== (const string_vector &lhs, const string_vector &rhs);
 
-   private:
-      static allocator<string> alloc;
+  friend bool operator!= (const string_vector &lhs, const string_vector &rhs);
 
-      string *elements;    // pointer to the first element in the array
-      string *first_free;  // pointer tro the first free element in the array
-      string *cap;         // pointer to one past the end of the array
+private:
 
-      void check_and_allocate ();
+  static allocator<string> alloc;
 
-      pair<string *, string *> allocate_and_copy (const string *begin, const string *end);
+  string *elements;    // pointer to the first element in the array
+  string *first_free;  // pointer tro the first free element in the array
+  string *cap;         // pointer to one past the end of the array
 
-      void free ();
+  void check_and_allocate();
 
-      void reallocate (size_t new_capacity = 0);
+  pair<string *, string *> allocate_and_copy (const string *begin, const string *end);
 
-   };
+  void free();
+
+  void reallocate (size_t new_capacity = 0);
+};

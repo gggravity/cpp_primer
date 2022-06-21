@@ -8,44 +8,37 @@ class Const_str_blob_ptr;
 using namespace std;
 
 class Str_blob
-      {
-            friend class Str_blob_ptr;
-            friend class Const_str_blob_ptr;
+{
+  friend class Str_blob_ptr;
+  friend class Const_str_blob_ptr;
 
-      public:
-            typedef vector<string>::size_type size_type;
+public:
 
-            Str_blob ();
+  typedef vector<string>::size_type size_type;
 
-            Str_blob (initializer_list<string> il);
+  Str_blob();
 
-            [[nodiscard]] size_type size () const
-              {
-                return data->size();
-              }
+  Str_blob (initializer_list<string> il);
 
-            [[nodiscard]] bool empty () const
-              {
-                return data->empty();
-              }
+  [[nodiscard]] size_type size() const { return data->size(); }
 
-            void push_back (const string &t)
-              {
-                data->push_back(t);
-              }
+  [[nodiscard]] bool empty() const { return data->empty(); }
 
-            void pop_pack ();
+  void push_back (const string &t) { data->push_back (t); }
 
-            string &front ();
+  void pop_pack();
 
-            string &back ();
+  string &front();
 
-            Str_blob_ptr begin ();
+  string &back();
 
-            Str_blob_ptr end ();
+  Str_blob_ptr begin();
 
-      private:
-            shared_ptr<vector<string>> data;
+  Str_blob_ptr end();
 
-            void check (size_type i, const string &msg) const;
-      };
+private:
+
+  shared_ptr<vector<string>> data;
+
+  void check (size_type i, const string &msg) const;
+};

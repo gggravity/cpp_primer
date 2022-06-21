@@ -1,9 +1,9 @@
-#include <bits/stdc++.h>
 #include "TextQuery.h"
+#include <bits/stdc++.h>
 
 using namespace std;
 
-int main ()
+int main()
 try
   {
     /*
@@ -23,8 +23,8 @@ try
     cout << &get<2>(t2) << endl;
     */
 
-    ifstream ifs { "../text.txt" };
-    runQueries(ifs);
+    ifstream ifs {"../text.txt"};
+    runQueries (ifs);
 
     return 0;
   }
@@ -32,5 +32,3 @@ catch (exception &e)
   {
     cerr << "Error: " << e.what() << endl;
   }
-
-

@@ -4,7 +4,7 @@
 
 int factorial (int number)
 {
-  int result{1};
+  int result {1};
 
   while (number > 1)
     {
