@@ -1,2 +1,2 @@
 # C++ Primer
-C++ Primer Fifth Edition - Exercise solution
+C++ Primer Fifth Edition - Exercise solutions
